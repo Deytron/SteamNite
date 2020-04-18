@@ -39,10 +39,11 @@
                                                 <Image Canvas.Left="0" Canvas.Bottom="0" Name="PART_ImageIcon" MaxHeight="180" MaxWidth="500" DockPanel.Dock="Left" Margin="0,0,0,5" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderOptions.BitmapScalingMode="Fant" />
                                             </Canvas>
                                         </DockPanel>
+                                        <Rectangle Fill="#262b33" Height="4" HorizontalAlignment="Stretch" Margin="-25,0,-25,-135"/>
                                         <Image Source="{ThemeFile 'Images/blurbar.png'}" Height="60" Stretch="Fill" Margin="-27,8,-27,-70">
-                                        <Image.Effect>
-                                            <BlurEffect Radius="1" KernelType="Box"/>
-                                        </Image.Effect>
+                                            <Image.Effect>
+                                                <BlurEffect Radius="1" KernelType="Box"/>
+                                            </Image.Effect>
                                         </Image>
                                         <Grid Margin="0,0,0,7">
                                             <Grid.ColumnDefinitions>
@@ -76,10 +77,11 @@
                                         </Grid>
                                     </StackPanel>
                                 </DockPanel>
-                                <DockPanel HorizontalAlignment="Left" MaxWidth="1920" Grid.Row="3" Grid.RowSpan="2" Width="Auto">
-                                    <StackPanel DockPanel.Dock="Left" HorizontalAlignment="Stretch" Margin="15,0,0,0">
-                                        <Grid Background="#34000000" Height="170">
+                                <DockPanel HorizontalAlignment="Stretch" MaxWidth="1920" Grid.Row="3" Grid.RowSpan="2" Width="Auto">
+                                    <StackPanel DockPanel.Dock="Left" Margin="15,0,0,0">
+                                        <Grid Background="#34000000">
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
@@ -141,7 +143,13 @@
                                                     <ItemsControl Padding="0,3,0,0" Name="PART_ItemsCategories" VerticalAlignment="Top" Margin="0,0,0,0"/>
                                                 </ScrollViewer>
                                             </GridEx>
-                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="20" Grid.Column="6" Margin="15,0,0,0" Height="150">
+                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="50" Grid.Column="6" Margin="15,0,0,0" Height="150">
+                                                <Label Name="PART_ElemFeatures" Content="{DynamicResource LOCFeaturesLabel}" VerticalAlignment="Top" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                                <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxHeight="150">
+                                                    <ItemsControl Padding="0,3,0,0" Name="PART_ItemsFeatures" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                                                </ScrollViewer>
+                                            </GridEx>
+                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="20" Grid.Column="7" Margin="15,0,0,0" Height="150">
                                                 <Label Name="PART_ElemSource" Content="{DynamicResource LOCSourceLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
                                                 <Button Padding="0" Background="Transparent" Name="PART_ButtonSource" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#d3d3d3" Height="30"/>
 
@@ -157,18 +165,19 @@
                                                     </ItemsPanelTemplate>
                                                 </ItemsControl.ItemsPanel>
                                                 <ItemsControl.ItemContainerStyle>
-                                                    <Style>
+                                                    <Style TargetType="ContentPresenter">
                                                         <Setter Property="FrameworkElement.Margin" Value="30,0,50,0"/>
                                                     </Style>
                                                 </ItemsControl.ItemContainerStyle>
                                             </ItemsControl>
                                         </Grid>
                                         <HtmlTextView x:Name="PART_HtmlDescription" Margin="0,0,0,0" HtmlFontSize="{DynamicResource FontSize}" HtmlFontFamily="{DynamicResource FontFamily}" HtmlForeground="#898989" LinkForeground="{DynamicResource GlyphColor}"
-                                                      Height="270"/>
+                                                      Height="250"/>
                                     </StackPanel>
                                 </DockPanel>
                             </Grid>
-                            <Button x:Name="PART_ButtonMoreActions" Content="ⓘ" FontSize="18" Width="35" Height="35" Margin="0,450,20,0" HorizontalAlignment="Right"/>
+                            <Button x:Name="PART_ButtonMoreActions" Content="ⓘ" FontSize="25" Padding="0,0,0,0" Width="35" Height="35" Margin="0,450,20,0" HorizontalAlignment="Right"/>
+                            <Button x:Name="PART_ButtonEditGame" Content="⚙" FontSize="18" Width="35" Height="35" Margin="0,450,70,0" Padding="0,0,0,0" HorizontalAlignment="Right"/>
                         </Grid>
                     </ScrollViewer>
                 </ControlTemplate>

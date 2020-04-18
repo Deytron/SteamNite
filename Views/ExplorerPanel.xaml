@@ -24,7 +24,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Border.Style>
-                        <DockPanel Background="{TemplateBinding Background}">
+                        <DockPanel Background="#24282f">
                             <ComboBox Name="PART_SelectFields"
                                   DockPanel.Dock="Top" Margin="5,8,5,8" />
                             <ListBox Name="PART_SelectItems"

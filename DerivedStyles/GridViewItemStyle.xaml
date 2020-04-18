@@ -6,6 +6,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <ScaleTransform />
@@ -17,7 +18,7 @@
                     <Grid Background="{DynamicResource GridItemBackgroundBrush}"
                           Margin="{Settings ItemSpacingMargin}"
                           x:Name="ItemGrid">
-                        <Border x:Name="SelectionBorder" BorderThickness="0" Margin="0" />
+                        <Border x:Name="SelectionBorder" BorderThickness="0"/>
                         <ContentPresenter />
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -29,14 +30,17 @@
                             <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" TargetName="SelectionBorder"/>
                             <Setter Property="Canvas.ZIndex" Value="90" />
                         </Trigger>
+                        <DataTrigger Binding="{Settings ShowGridItemBackground}" Value="False">
+                            <Setter Property="Background" Value="Transparent" TargetName="ItemGrid" />
+                        </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation
                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
-                                            To="1.01"
-                                            Duration="0:0:.3"
+                                            To="1.05"
+                                            Duration="0:0:.5"
                                         >
                                             <DoubleAnimation.EasingFunction>
                                                 <CubicEase EasingMode="EaseOut"/>
@@ -44,8 +48,8 @@
                                         </DoubleAnimation>
                                         <DoubleAnimation
                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
-                                            To="1.04"
-                                            Duration="0:0:.3"
+                                            To="1.05"
+                                            Duration="0:0:.5"
                                         >
                                             <DoubleAnimation.EasingFunction>
                                                 <CubicEase EasingMode="EaseOut"/>
@@ -60,7 +64,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
                                             To="1"
-                                            Duration="0:0:.2"
+                                            Duration="0:0:.4"
                                         >
                                             <DoubleAnimation.EasingFunction>
                                                 <CubicEase EasingMode="EaseOut"/>
@@ -69,7 +73,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
                                             To="1"
-                                            Duration="0:0:.2"
+                                            Duration="0:0:.4"
                                         >
                                             <DoubleAnimation.EasingFunction>
                                                 <CubicEase EasingMode="EaseOut"/>
@@ -79,9 +83,6 @@
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
                         </Trigger>
-                        <DataTrigger Binding="{Settings ShowGridItemBackground}" Value="False">
-                            <Setter Property="Background" Value="Transparent" TargetName="ItemGrid" />
-                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
