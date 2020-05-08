@@ -25,9 +25,9 @@
                             </Style>
                         </Border.Style>
                         <DockPanel Background="#24282f">
-                            <ComboBox Name="PART_SelectFields"
+                            <ComboBox Name="PART_SelectFields" Cursor="Hand"
                                   DockPanel.Dock="Top" Margin="5,8,5,8" />
-                            <ListBox Name="PART_SelectItems"
+                            <ListBox Name="PART_SelectItems"  Cursor="Hand"
                                  DockPanel.Dock="Top" Margin="5,0,5,8"                                      
                                  BorderThickness="0"
                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">

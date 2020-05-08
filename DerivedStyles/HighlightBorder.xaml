@@ -13,5 +13,22 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" />
             </Trigger>
         </Style.Triggers>
-    </Style>                  
+    </Style>
+
+    <Style x:Key="HighlightBackground" TargetType="Border" BasedOn="{StaticResource {x:Type Border}}">
+        <Setter Property="Background" Value="#3F000000"/>
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#3e4047" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="#3e4047" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    
 </ResourceDictionary>

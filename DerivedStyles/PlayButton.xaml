@@ -3,6 +3,7 @@
     
     <Style x:Key="PlayButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="FontFamily" Value="Corbel"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Typography.Capitals" Value="AllSmallCaps"/>
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="Width" Value="Auto"/>

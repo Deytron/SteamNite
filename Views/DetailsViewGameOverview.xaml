@@ -12,7 +12,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="530"/>
                                 <RowDefinition Height="599*"/>
-                                <RowDefinition Height="661*"/>
+                                <RowDefinition Height="561*"/>
                             </Grid.RowDefinitions>
                             <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                                 <FadeImage.ImageOpacityMask>
@@ -53,7 +53,7 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Button Grid.Column="0" Name="PART_ButtonPlayAction" 
+                                            <Button Grid.Column="0" Name="PART_ButtonPlayAction" Cursor="Hand"
                                                     HorizontalAlignment="Left" Style="{DynamicResource PlayButton}" Margin="0,15,0,0"/>
                                             <Button Grid.Column="0" Name="PART_ButtonContextAction" 
                                                     HorizontalAlignment="Left" Style="{DynamicResource ContextButton}" Margin="0,15,0,0"/>
@@ -176,8 +176,45 @@
                                     </StackPanel>
                                 </DockPanel>
                             </Grid>
-                            <Button x:Name="PART_ButtonMoreActions" Content="ⓘ" FontSize="25" Padding="0,0,0,0" Width="35" Height="35" Margin="0,450,20,0" HorizontalAlignment="Right"/>
-                            <Button x:Name="PART_ButtonEditGame" Content="⚙" FontSize="18" Width="35" Height="35" Margin="0,450,70,0" Padding="0,0,0,0" HorizontalAlignment="Right"/>
+                            <StackPanel Width="Auto" Orientation="Horizontal" Margin="0,0,20,0" HorizontalAlignment="Stretch" FlowDirection="RightToLeft">
+                                <Button Style="{DynamicResource ButtonGameEdit}" x:Name="PART_ButtonMoreActions" Opacity="0.85" Padding="0" Width="35" Height="35" Margin="0,450,10,0" Cursor="Hand">
+                                    <Button.Content>
+                                        <Image Width="20" RenderOptions.BitmapScalingMode="NearestNeighbor">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Source" Value="../Images/info.png"/>
+                                                    <Setter Property="Opacity" Value="0.75"/>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Source" Value="../Images/infohovered.png"/>
+                                                            <Setter Property="Opacity" Value="1"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                    </Button.Content>
+                                </Button>
+                                <Button Style="{DynamicResource ButtonGameEdit}" x:Name="PART_ButtonEditGame" Opacity="0.85" Focusable="False" FontSize="18" Width="35" Height="35" Margin="0,450,0,0" Padding="0" Cursor="Hand">
+                                    <Button.Content>
+                                        <Image Height="20" Width="18">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Source" Value="../Images/settings.png"/>
+                                                    <Setter Property="Opacity" Value="0.75"/>
+                                                    <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Source" Value="../Images/settingshovered.png"/>
+                                                            <Setter Property="Opacity" Value="1"/>
+                                                        </Trigger>
+                                            </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                    </Button.Content>
+                                </Button>
+                                <Canvas Width="700"/>
+                            </StackPanel>
                         </Grid>
                     </ScrollViewer>
                 </ControlTemplate>

@@ -63,13 +63,31 @@
 
                                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal"
                                             Margin="0,10,0,10">
-                                    <Button Name="PART_ButtonPlayAction" 
+                                    <Button Name="PART_ButtonPlayAction" Cursor="Hand"
                                              Style="{DynamicResource PlayButton}" />
                                     <Button Name="PART_ButtonContextAction" 
                                             Style="{DynamicResource ContextButton}"/>
-                                    <Button Name="PART_ButtonMoreActions" Margin="120,0,0,0" VerticalAlignment="Top"
-                                            Content="ⓘ" FontSize="18"
-                                            Width="35" Height="35"/>
+                                    <Button Style="{DynamicResource ButtonGameEdit}" Name="PART_ButtonMoreActions" Margin="120,0,0,0" VerticalAlignment="Top" Width="35" Height="35" Padding="0" Cursor="Hand">
+                                        <Button.Content>
+                                            <Image Width="20" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0,0,-40,0">
+                                                <Image.Style>
+                                                    <Style TargetType="Image">
+                                                        <Setter Property="Source" Value="../Images/info.png"/>
+                                                        <Setter Property="Opacity" Value="0.75"/>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Source" Value="../Images/infohovered.png"/>
+                                                                <Setter Property="Opacity" Value="1"/>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Image.Style>
+                                                <Image.RenderTransform>
+                                                    <ScaleTransform ScaleX="-1"/>
+                                                </Image.RenderTransform>
+                                            </Image>
+                                        </Button.Content>
+                                    </Button>
                                 </StackPanel>
 
                                 <ScrollViewer DockPanel.Dock="Top" HorizontalAlignment="Stretch"

@@ -13,7 +13,7 @@
                                d:DataContext="{x:Static DesignMainViewModel.DesignIntance}">
                         <GridViewGameOverview x:Name="PART_ControlGameView"
                                               Width="{Settings GrdiDetailsWitdh}"
-                                              DockPanel.Dock="{Settings GridViewDetailsPosition}" />                   
+                                              DockPanel.Dock="{Settings GridViewDetailsPosition}" />
                         <Grid DockPanel.Dock="Left">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -32,9 +32,41 @@
                                     </DataTemplate>
                                 </ExtendedListBox.ItemTemplate>
                             </ExtendedListBox>
-                            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1">
-                                <Label Content="{DynamicResource LOCZoomLabel}" Margin="10,0,10,0"/>
-                                <SliderWithPopup x:Name="PART_SliderZoom" />
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Background="#B323282e" VerticalAlignment="Center" Height="30">
+                                <Label Content="{DynamicResource LOCZoomLabel}" Margin="10,0,10,0" VerticalAlignment="Center"/>
+                                <SliderWithPopup x:Name="PART_SliderZoom" VerticalAlignment="Center"/>
+                                <Label Content="{DynamicResource LOCLibrary}" Margin="20,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="PART_TextLastActivity" Background="Transparent" Text="{Binding SelectedGame.Library}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                <Label Content="{DynamicResource LOCPlatformTitle}" Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock Background="Transparent" Name="PART_ButtonPlatform" Text="{Binding SelectedGame.Platform}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                <Label Content="{DynamicResource LOCDeveloperLabel}" Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock Background="Transparent" Text="{Binding SelectedGame.Developers[0]}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                <Label Content="{DynamicResource LOCPublisherLabel}" Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock Background="Transparent" Text="{Binding SelectedGame.Publishers[0]}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                <Label Content="{DynamicResource LOCGenreLabel}" Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock Background="Transparent" Text="{Binding SelectedGame.Genres[0]}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                <Label Content="{DynamicResource LOCGameReleaseDateTitle}" Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock Background="Transparent" Text="{Binding SelectedGame.ReleaseYear}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                <Label Content="{DynamicResource LOCAgeRatingLabel}" Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock Background="Transparent" Text="{Binding SelectedGame.AgeRating}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                <Label Content="{DynamicResource LOCVersionLabel}" Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Foreground="White" FontSize="15" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                <TextBlock Background="Transparent" Text="{Binding SelectedGame.Version}" HorizontalAlignment="Left" Foreground="#e6e6e6" FontSize="15" VerticalAlignment="Center"/>
+                                <Rectangle Height="15" Width="3" Fill="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
                             </StackPanel>
                         </Grid>
                     </DockPanel>

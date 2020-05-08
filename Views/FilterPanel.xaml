@@ -30,7 +30,7 @@
                                         DockPanel.Dock="Right" Margin="0,-5,5,0" FontSize="25"
                                         Name="PART_ButtonClose"/>
                                 <Button DockPanel.Dock="Left" Content="{StaticResource LOCClearFilters}"                                        
-                                        HorizontalAlignment="Left"
+                                        HorizontalAlignment="Left" Cursor="Hand"
                                         Style="{StaticResource SimpleButton}"
                                         Name="PART_ButtonClear"/>
                             </DockPanel>
@@ -41,6 +41,7 @@
                                         <Style x:Key="FilterCheck" TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
                                             <Setter Property="Margin" Value="8,2,6,8" />
                                             <Setter Property="BorderThickness" Value="0" />
+                                            <Setter Property="Cursor" Value="Hand"/>
                                             <Style.Triggers>
                                                 <Trigger Property="IsChecked" Value="{StaticResource False}">
                                                     <Setter Property="Opacity" Value="0.6" />
@@ -49,6 +50,10 @@
                                         </Style>
                                         <Style x:Key="FilterLabel" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
                                             <Setter Property="Margin" Value="8,10,6,4" />
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                            <Setter Property="FontSize" Value="16"/>
+                                            <Setter Property="FontFamily" Value="Corbel"/>
+                                            <Setter Property="Typography.Capitals" Value="AllSmallCaps"/>
                                             <Style.Triggers>
                                                 <Trigger Property="Tag" Value="{StaticResource False}">
                                                     <Setter Property="Opacity" Value="0.6"/>
@@ -74,28 +79,28 @@
                                         </Style>
                                     </StackPanel.Resources>
 
-                                    <CheckBox Name="PART_ToggleInstalled" Style="{StaticResource FilterCheck}">
+                                    <CheckBox Name="PART_ToggleInstalled" Style="{StaticResource FilterCheck}" Cursor="Hand">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{StaticResource LOCGameIsInstalledTitle}" Margin="0,0,5,0"/>
                                             <ContentControl Name="PART_ContentInstalledCount" ContentStringFormat="({0})"/>
                                         </StackPanel>
                                     </CheckBox>
 
-                                    <CheckBox Name="PART_ToggleUnInstalled" Style="{StaticResource FilterCheck}">
+                                    <CheckBox Name="PART_ToggleUnInstalled" Style="{StaticResource FilterCheck}" Cursor="Hand">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{StaticResource LOCGameIsUnInstalledTitle}" Margin="0,0,5,0"/>
                                             <ContentControl Name="PART_ContentUnInstalledCount" ContentStringFormat="({0})"/>
                                         </StackPanel>
                                     </CheckBox>
 
-                                    <CheckBox Name="PART_ToggleHidden" Style="{StaticResource FilterCheck}">
+                                    <CheckBox Name="PART_ToggleHidden" Style="{StaticResource FilterCheck}" Cursor="Hand">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{StaticResource LOCGameHiddenTitle}" Margin="0,0,5,0"/>
                                             <ContentControl Name="PART_ContentHiddenCount" ContentStringFormat="({0})"/>
                                         </StackPanel>
                                     </CheckBox>
 
-                                    <CheckBox Name="PART_ToggleFavorite" Style="{StaticResource FilterCheck}">
+                                    <CheckBox Name="PART_ToggleFavorite" Style="{StaticResource FilterCheck}" Cursor="Hand">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{StaticResource LOCGameFavoriteTitle}" Margin="0,0,5,0"/>
                                             <ContentControl Name="PART_ContentFavoriteCount" ContentStringFormat="({0})"/>
@@ -110,12 +115,12 @@
                                     <!--Library-->
                                     <Label Name="PART_ElemLibraryLabel" Content="{StaticResource LOCLibrary}"  Foreground="#FF00E8FF"
                                        Style="{StaticResource FilterLabel}" />
-                                    <FilterSelectionBox x:Name="PART_FilterLibrary" />
+                                    <FilterSelectionBox x:Name="PART_FilterLibrary"/>
 
                                     <!--Name-->
                                     <Label Name="PART_ElemNameLabel" Content="{StaticResource LOCNameLabel}" Foreground="#FF00E8FF"
                                        Style="{StaticResource FilterLabel}" />
-                                    <SearchBox x:Name="PART_FilterName" />
+                                    <SearchBox x:Name="PART_FilterName"/>
 
                                     <!--Genre-->
                                     <Label Name="PART_ElemGenreLabel" Content="{StaticResource LOCGenreLabel}" Foreground="#FF00E8FF"
