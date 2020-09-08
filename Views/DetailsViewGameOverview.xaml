@@ -154,7 +154,7 @@
                                                     </Style>
                                                 </ProgressBar.Resources>
                                             </ProgressBar>
-                                            <Button Grid.Column="4" Grid.ColumnSpan="5" Grid.RowSpan="2" Name="PART_ScCustomButton" Cursor="Hand" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True"></Button>
+                                            <Button Grid.Column="4" Grid.ColumnSpan="5" Grid.RowSpan="2" Name="PART_ScCustomButton" Cursor="Hand" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True" Margin="25,23,0,5"></Button>
                                             <StackPanel Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,15,0,0">
                                                 <Label Grid.Column="3" Name="PART_ElemCompletionStatus" Width="Auto" Height="27" Foreground="#b4b4b4" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCCompletionStatus}"></Label>
                                                 <TextBlock Grid.Row="1" Name="PART_TextCompletionStatus" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
