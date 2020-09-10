@@ -79,45 +79,38 @@
                                                 <Label Grid.Row="1" Name="PART_ElemPlayTime" Width="Auto" Height="27" Foreground="#b4b4b4" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCTimePlayed}"></Label>
                                                 <TextBlock Grid.Row="1" Name="PART_TextPlayTime" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
                                             </StackPanel>
-                                            <StackPanel Grid.Column="4" Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="25,0,0,7">
+                                            <StackPanel Grid.Column="4" Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="25,0,0,7" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}">
                                                 <Image Source="{ThemeFile 'Images/achievement.png'}"
                                                                     Height="30" RenderOptions.BitmapScalingMode="Fant"
                                                                     Margin="0,0,0,0"/>
                                             </StackPanel>
-                                            <Label Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="4" Content="ACHIEVEMENTS" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FFB4B4B4" Height="27" Width="125" Margin="10,15,0,0">
+                                            <Label x:Name="label" Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="4" Content="ACHIEVEMENTS" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" 
+                                                   VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FFB4B4B4" Margin="10,15,0,0" Tag="{DynamicResource Sc_HasData}">
                                                 <Label.Style>
                                                     <Style TargetType="Label">
                                                         <Setter Property="Padding" Value="0,0,0,0" />
                                                         <Setter Property="Foreground" Value="#b4b4b4" />
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
                                                     </Style>
                                                 </Label.Style>
                                             </Label>
-                                            <Label Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="1" Content="{DynamicResource Sc_Unlocked}" Name="UnlockedAchievements" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Height="20" Width="Auto" Margin="10,0,0,0">
-                                                <Label.Style>
-                                                    <Style TargetType="Label">
-                                                        <Setter Property="Padding" Value="0,0,0,0" />
-                                                        <Setter Property="Foreground" Value="#626164" />
-                                                    </Style>
-                                                </Label.Style>
-                                            </Label>
-                                            <Label Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="1" Content="/" Name="SeparateAchievements" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Height="20" Width="Auto">
-                                                <Label.Style>
-                                                    <Style TargetType="Label">
-                                                        <Setter Property="Padding" Value="0,0,0,0" />
-                                                        <Setter Property="Foreground" Value="#626164" />
-                                                    </Style>
-                                                </Label.Style>
-                                            </Label>
-                                            <Label Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="1" Content="{DynamicResource Sc_Total}" Name="TotalAchievements" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Height="20" Width="Auto" Margin="0,0,5,0">
-                                                <Label.Style>
-                                                    <Style TargetType="Label">
-                                                        <Setter Property="Padding" Value="0,0,0,0" />
-                                                        <Setter Property="Foreground" Value="#626164" />
-                                                    </Style>
-                                                </Label.Style>
-                                            </Label>
-                                            <ProgressBar Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="1" FontSize="10" Maximum="{DynamicResource Sc_Total}" Value="{DynamicResource Sc_Unlocked}"
-						                                 Margin="0,4,0,0" Background="Black" Width="100" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource RoundedProgressBar}">
+                                            <Label Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="1" Name="UnlockedAchievements" Content="{DynamicResource Sc_UnlockedDouble}" 
+                                                   Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Margin="10,0,0,0"
+                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
+                                            <Label Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="1" Name="SeparateAchievements" Content="/"  
+                                                   Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" 
+                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
+                                            <Label Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="1" Name="TotalAchievements" Content="{DynamicResource Sc_TotalDouble}"
+                                                   Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Margin="0,0,5,0"
+                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
+                                            <ProgressBar Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="1" FontSize="10" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
+                                                         Maximum="{DynamicResource Sc_TotalDouble}" Value="{DynamicResource Sc_UnlockedDouble}"
+							 Margin="0,4,0,0" Background="Black" Foreground="#FF0071FF" Width="100" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource RoundedProgressBar}">
                                                 <ProgressBar.Resources>
                                                     <Style x:Key="RoundedProgressBar" TargetType="{x:Type ProgressBar}">
                                                         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -128,22 +121,16 @@
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="{x:Type ProgressBar}">
                                                                     <Border BorderThickness="{TemplateBinding BorderThickness}"
-													                        CornerRadius="{DynamicResource ControlCornerRadius}">
+									    CornerRadius="{DynamicResource ControlCornerRadius}">
                                                                         <Border.BorderBrush>
                                                                             <SolidColorBrush Color="#5555CDFF" Opacity="0"/>
                                                                         </Border.BorderBrush>
                                                                         <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                                                                            <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4" />
-                                                                            <Rectangle x:Name="COPY_Track" Margin="0" RadiusY="4" RadiusX="4"/>
-                                                                            <Decorator x:Name="COPY_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                                                                            <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4"/>
+                                                                            <Rectangle x:Name="PART_Track" Margin="0" RadiusY="4" RadiusX="4"/>
+                                                                            <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
                                                                                 <Grid>
-                                                                                    <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4" />
-                                                                                    <Grid x:Name="Animation" Visibility="Hidden">
-                                                                                        <Rectangle Fill="{TemplateBinding Background}" Margin="0,0,50,0">
-                                                                                        </Rectangle>
-                                                                                        <Rectangle Fill="{TemplateBinding Background}" RenderTransformOrigin="1, 0" Margin="50,0,0,0">
-                                                                                        </Rectangle>
-                                                                                    </Grid>
+                                                                                    <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4"/>
                                                                                 </Grid>
                                                                             </Decorator>
                                                                         </Grid>
@@ -154,7 +141,8 @@
                                                     </Style>
                                                 </ProgressBar.Resources>
                                             </ProgressBar>
-                                            <Button Grid.Column="4" Grid.ColumnSpan="5" Grid.RowSpan="2" Name="PART_ScCustomButton" Cursor="Hand" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True" Margin="25,23,0,5"></Button>
+                                            <Button Grid.Column="4" Grid.ColumnSpan="5" Grid.RowSpan="2" Name="PART_ScCustomButton" Cursor="Hand" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
+                                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True" Margin="25,23,0,5"/>
                                             <StackPanel Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,15,0,0">
                                                 <Label Grid.Column="3" Name="PART_ElemCompletionStatus" Width="Auto" Height="27" Foreground="#b4b4b4" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCCompletionStatus}"></Label>
                                                 <TextBlock Grid.Row="1" Name="PART_TextCompletionStatus" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
