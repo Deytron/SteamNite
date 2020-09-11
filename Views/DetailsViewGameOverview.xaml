@@ -7,7 +7,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DetailsViewGameOverview}">
-                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1980" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}">
                         <Grid Background="#262b33">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="530"/>
@@ -82,7 +82,7 @@
                                             <StackPanel Grid.Column="4" Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="25,0,0,7" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}">
                                                 <Image Source="{ThemeFile 'Images/achievement.png'}"
                                                                     Height="30" RenderOptions.BitmapScalingMode="Fant"
-                                                                    Margin="0,0,0,0"/>
+                                                                    Margin="0,0,0,0"></Image>
                                             </StackPanel>
                                             <Label x:Name="label" Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="4" Content="ACHIEVEMENTS" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" 
                                                    VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FFB4B4B4" Margin="10,15,0,0" Tag="{DynamicResource Sc_HasData}">
@@ -108,9 +108,9 @@
                                             <Label Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="1" Name="TotalAchievements" Content="{DynamicResource Sc_TotalDouble}"
                                                    Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Margin="0,0,5,0"
                                                    Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
-                                            <ProgressBar Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="1" FontSize="10" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
+                                            <ProgressBar x:Name="progressBar" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="1" FontSize="10" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
                                                          Maximum="{DynamicResource Sc_TotalDouble}" Value="{DynamicResource Sc_UnlockedDouble}"
-							 Margin="0,4,0,0" Background="Black" Foreground="#FF0071FF" Width="100" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource RoundedProgressBar}">
+						                                 Margin="0,4,0,0" Background="Black" Foreground="#FF0071FF" Width="100" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource RoundedProgressBar}">
                                                 <ProgressBar.Resources>
                                                     <Style x:Key="RoundedProgressBar" TargetType="{x:Type ProgressBar}">
                                                         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -121,16 +121,16 @@
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="{x:Type ProgressBar}">
                                                                     <Border BorderThickness="{TemplateBinding BorderThickness}"
-									    CornerRadius="{DynamicResource ControlCornerRadius}">
+													                        CornerRadius="{DynamicResource ControlCornerRadius}">
                                                                         <Border.BorderBrush>
                                                                             <SolidColorBrush Color="#5555CDFF" Opacity="0"/>
                                                                         </Border.BorderBrush>
                                                                         <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                                                                            <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4"/>
+                                                                            <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4" />
                                                                             <Rectangle x:Name="PART_Track" Margin="0" RadiusY="4" RadiusX="4"/>
                                                                             <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
                                                                                 <Grid>
-                                                                                    <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4"/>
+                                                                                    <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4" />
                                                                                 </Grid>
                                                                             </Decorator>
                                                                         </Grid>
@@ -142,7 +142,7 @@
                                                 </ProgressBar.Resources>
                                             </ProgressBar>
                                             <Button Grid.Column="4" Grid.ColumnSpan="5" Grid.RowSpan="2" Name="PART_ScCustomButton" Cursor="Hand" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
-                                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True" Margin="25,23,0,5"/>
+                                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True" Margin="25,23,0,5" ToolTip="{Binding Value, ConverterParameter=\{DynamicResource Sc_TotalDouble\}, Converter={StaticResource ValueConverterGroup}, ElementName=progressBar, Mode=OneWay, StringFormat=\{0:P\}}"/>
                                             <StackPanel Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,15,0,0">
                                                 <Label Grid.Column="3" Name="PART_ElemCompletionStatus" Width="Auto" Height="27" Foreground="#b4b4b4" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCCompletionStatus}"></Label>
                                                 <TextBlock Grid.Row="1" Name="PART_TextCompletionStatus" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
@@ -163,72 +163,81 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Image Grid.Column="0" Name="PART_ImageCover" HorizontalAlignment="Center" VerticalAlignment="Top" Height="150" StretchDirection="Both" Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant" Margin="10,10,0,10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Image Grid.Column="0" Name="PART_ImageCover" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="150" StretchDirection="Both" Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant" Margin="10,10,10,10">
                                                 <Image.Effect>
                                                     <DropShadowEffect BlurRadius="18" ShadowDepth="0"/>
                                                 </Image.Effect>
                                             </Image>
-                                            <GridEx Height="150" ColumnCount="2" AutoLayoutColumns="2" RowCount="20" Grid.Column="1" Margin="15,0,0,0">
-                                                <Label Padding="0" Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonLibrary" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
-                                                <Label Padding="0" Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonPlatform" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
-                                                <Label Padding="0" Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
-                                                <ItemsControl Padding="0,3,0,0" Name="PART_ItemsDevelopers" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
-                                                <Label Padding="0" Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
-                                                <ItemsControl Padding="0,3,0,0" Name="PART_ItemsPublishers" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
-                                                <Label Padding="0" Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonAgeRating" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
-                                            </GridEx>
-                                            <GridEx Height="150" ColumnCount="20" AutoLayoutColumns="2" RowCount="20" Grid.Column="2" Margin="15,0,0,0">
-                                                <Label Name="PART_ElemGenres" Content="{DynamicResource LOCGenreLabel}" VerticalAlignment="Top" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                            <GridEx ColumnCount="2" Grid.RowSpan="2" AutoLayoutColumns="2" RowCount="20" Grid.Column="2" Margin="15,0,0,0" VerticalAlignment="Top">
+                                                <Label Padding="0" Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
+                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonLibrary" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="20"/>
+                                                <Label Padding="0" Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
+                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonPlatform" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="20"/>
+                                                <Label Padding="0" Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
+                                                <ItemsControl Padding="0,3,0,0" Name="PART_ItemsDevelopers" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="20"/>
+                                                <Label Padding="0" Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
+                                                <ItemsControl Padding="0,3,0,0" Name="PART_ItemsPublishers" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="20"/>
+                                                <Label Name="PART_ElemReleaseDate" Content="{DynamicResource LOCGameReleaseDateTitle}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
+                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonReleaseDate" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#d3d3d3" Height="20"/>
+                                                <Label Padding="0" Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
+                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonAgeRating" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="20"/>
+                                                <Label Name="PART_ElemGenres" Content="{DynamicResource LOCGenreLabel}" VerticalAlignment="Top" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
                                                 <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxHeight="120">
                                                     <ItemsControl Padding="0,3,0,0" Name="PART_ItemsGenres" Foreground="#d3d3d3" Margin="0,0,0,0"/>
                                                 </ScrollViewer>
-                                                <Label Name="PART_ElemReleaseDate" Content="{DynamicResource LOCGameReleaseDateTitle}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonReleaseDate" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#d3d3d3" Height="30"/>
                                             </GridEx>
-                                            <GridEx Height="150" ColumnCount="2" AutoLayoutColumns="2" RowCount="20" Grid.Column="3" Margin="15,0,0,0">
-                                                <Label Name="PART_ElemCommunityScore" Content="{DynamicResource LOCCommunityScore}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                            <GridEx Height="150" ColumnCount="2" Grid.RowSpan="2" AutoLayoutColumns="2" RowCount="20" Grid.Column="4" Margin="15,0,0,0" VerticalAlignment="Top">
+                                                <Label Name="PART_ElemCommunityScore" Content="{DynamicResource LOCCommunityScore}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
                                                 <TextBlock Name="PART_TextCommunityScore" VerticalAlignment="Center" Style="{DynamicResource TextBlockGameScore}" Margin="0,0,0,0"/>
-
-                                                <Label Name="PART_ElemCriticScore" Content="{DynamicResource LOCCriticScore}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                                <Label Name="PART_ElemCriticScore" Content="{DynamicResource LOCCriticScore}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
                                                 <TextBlock Name="PART_TextCriticScore" VerticalAlignment="Center" Style="{DynamicResource TextBlockGameScore}" Margin="0,0,0,0"/>
-
-                                                <Label Name="PART_ElemUserScore" Content="{DynamicResource LOCUserScore}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                                <Label Name="PART_ElemUserScore" Content="{DynamicResource LOCUserScore}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
                                                 <TextBlock Name="PART_TextUserScore" VerticalAlignment="Center" Style="{DynamicResource TextBlockGameScore}" Margin="0,0,0,0"/>
-
-                                                <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                                <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
                                                 <Button Padding="0" Background="Transparent" Name="PART_ButtonSeries" VerticalAlignment="Center" Margin="0,0,0,0" Foreground="#d3d3d3"/>
-
-                                                <Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                                <Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" Margin="0,0,20,0" Foreground="#626164" Height="20"/>
                                                 <Button Padding="0" Background="Transparent" Name="PART_ButtonVersion" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3"/>
+                                                <Label Name="PART_ElemRegion" Content="{DynamicResource LOCRegionLabel}" Margin="0,0,30,0" Foreground="#626164" Height="20"/>
+                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonRegion" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="20"/>
+                                                <Label Name="PART_ElemSource" Content="{DynamicResource LOCSourceLabel}" Margin="0,0,30,0" Foreground="#626164" Height="20"/>
+                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonSource" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#d3d3d3" Height="20"/>
                                             </GridEx>
-                                            <GridEx ColumnCount="2" Grid.Column="4" AutoLayoutColumns="2" RowCount="50" Margin="15,0,0,0" Height="150">
-                                                <Label Name="PART_ElemTags" Content="{DynamicResource LOCTagsLabel}" Margin="0,0,30,0" VerticalAlignment="Top" Foreground="#626164" Height="30"/>
+                                            <GridEx ColumnCount="2" Grid.Column="5" Grid.Row="0" AutoLayoutColumns="2" RowCount="50" Margin="10,0,0,0" Height="Auto" MaxHeight="75" HorizontalAlignment="Left">
+                                                <Label Name="PART_ElemTags" Content="{DynamicResource LOCTagsLabel}" Margin="0,0,20,0" VerticalAlignment="Top" Foreground="#626164" Height="30"/>
                                                 <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxHeight="150">
                                                     <ItemsControl Padding="0,3,0,0" Name="PART_ItemsTags" VerticalAlignment="Top" Margin="0,0,0,0" Foreground="#d3d3d3"/>
                                                 </ScrollViewer>
                                             </GridEx>
-                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="50" Grid.Column="5" Margin="15,0,0,0" Height="150">
-                                                <Label Name="PART_ElemCategories" Content="{DynamicResource LOCGameCategoriesTitle}" VerticalAlignment="Top" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
+                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" Grid.Row="1" RowCount="50" Grid.Column="5" Margin="10,0,0,0" Height="75" HorizontalAlignment="Right">
+                                                <Label Name="PART_ElemCategories" Content="{DynamicResource LOCGameCategoriesTitle}" VerticalAlignment="Top" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
                                                 <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxHeight="150">
                                                     <ItemsControl Padding="0,3,0,0" Name="PART_ItemsCategories" VerticalAlignment="Top" Margin="0,0,0,0"/>
                                                 </ScrollViewer>
                                             </GridEx>
-                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="50" Grid.Column="6" Margin="15,0,0,0" Height="150">
+                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="50" Grid.RowSpan="2" Grid.Column="6" Margin="15,0,0,0" Height="150" VerticalAlignment="Top" HorizontalAlignment="Right">
                                                 <Label Name="PART_ElemFeatures" Content="{DynamicResource LOCFeaturesLabel}" VerticalAlignment="Top" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
                                                 <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxHeight="150">
                                                     <ItemsControl Padding="0,3,0,0" Name="PART_ItemsFeatures" VerticalAlignment="Top" Margin="0,0,0,0"/>
                                                 </ScrollViewer>
                                             </GridEx>
-                                            <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="20" Grid.Column="7" Margin="15,0,0,0" Height="150">
-                                                <Label Name="PART_ElemSource" Content="{DynamicResource LOCSourceLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonSource" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#d3d3d3" Height="30"/>
-
-                                                <Label Name="PART_ElemRegion" Content="{DynamicResource LOCRegionLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonRegion" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
+                                            <GridEx Grid.Row="1" VerticalAlignment="Bottom">
                                             </GridEx>
+                                            <HtmlTextView x:Name="PART_HtmlDescription" Grid.Column="1" Grid.RowSpan="2" Margin="0,20,0,0" HtmlFontSize="{DynamicResource FontSize}" HtmlFontFamily="{DynamicResource FontFamily}" HtmlForeground="#898989" LinkForeground="{DynamicResource GlyphColor}"
+                                                      Height="140" Width="500" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsChecked,ElementName=DetailsButton}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
                                         </Grid>
                                         <Grid Margin="0,10,0,5" Height="35" Background="#07FFFFFF">
                                             <ItemsControl Name="PART_ItemsLinks"  Margin="0,0,0,0" VerticalAlignment="Center">
@@ -244,14 +253,12 @@
                                                 </ItemsControl.ItemContainerStyle>
                                             </ItemsControl>
                                         </Grid>
-                                        <HtmlTextView x:Name="PART_HtmlDescription" Margin="0,0,0,0" HtmlFontSize="{DynamicResource FontSize}" HtmlFontFamily="{DynamicResource FontFamily}" HtmlForeground="#898989" LinkForeground="{DynamicResource GlyphColor}"
-                                                      Height="250"/>
                                     </StackPanel>
                                 </DockPanel>
                             </Grid>
                             <StackPanel Width="Auto" Orientation="Horizontal" Margin="0,0,20,0" HorizontalAlignment="Stretch" FlowDirection="RightToLeft">
-                                <Button Style="{DynamicResource ButtonGameEdit}" x:Name="PART_ButtonMoreActions" Opacity="0.85" Padding="0" Width="35" Height="35" Margin="0,450,10,0" Cursor="Hand">
-                                    <Button.Content>
+                                <ToggleButton  x:Name="DetailsButton" Background="#BF3c3f47" Foreground="{DynamicResource GlyphBrush}" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="0" Opacity="0.85" Padding="0" Width="35" Height="35" Margin="0,450,10,0" Cursor="Hand">
+                                    <ToggleButton.Content>
                                         <Image Width="20" RenderOptions.BitmapScalingMode="NearestNeighbor">
                                             <Image.Style>
                                                 <Style TargetType="Image">
@@ -266,9 +273,9 @@
                                                 </Style>
                                             </Image.Style>
                                         </Image>
-                                    </Button.Content>
-                                </Button>
-                                <Button Style="{DynamicResource ButtonGameEdit}" x:Name="PART_ButtonEditGame" Opacity="0.85" Focusable="False" FontSize="18" Width="35" Height="35" Margin="0,450,0,0" Padding="0" Cursor="Hand">
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                                <Button Style="{DynamicResource ButtonGameEdit}" x:Name="PART_ButtonMoreActions" Opacity="0.85" Focusable="False" FontSize="18" Width="35" Height="35" Margin="0,450,0,0" Padding="0" Cursor="Hand">
                                     <Button.Content>
                                         <Image Height="20" Width="18">
                                             <Image.Style>
