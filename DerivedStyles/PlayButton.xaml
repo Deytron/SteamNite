@@ -36,7 +36,7 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
                 <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                <Setter Property="Background" Value="#FF00D40A"/>
+                <Setter Property="Background" Value="{DynamicResource PlayButtonHover}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -45,7 +45,7 @@
         <Setter Property="FontFamily" Value="Corbel"/>
         <Setter Property="Typography.Capitals" Value="AllSmallCaps"/>
         <Setter Property="FontSize" Value="25"/>
-        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="MinWidth" Value="175"/>
         <Setter Property="Height" Value="47"/>
         <Setter Property="Background" Value="{DynamicResource ContextBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
@@ -59,9 +59,9 @@
                         <Border x:Name="DefaultBorder" BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="0"  Background="{TemplateBinding Background}"
                                 Opacity="1" CornerRadius="{DynamicResource ControlCornerRadius}"/>
-                        <TextBlock Text="↓" Opacity="0.9" FontFamily="Cambria" Padding="15,0,0,2"  FontSize="22" FontWeight="Light" Background="Transparent" Foreground="{DynamicResource TextBrush}" VerticalAlignment="Center"/>
-                        <TextBlock Text="␣" Opacity="0.9" FontFamily="Times New Roman" Padding="10,0,0,2"  FontSize="25" FontWeight="Light" Background="Transparent" Foreground="{DynamicResource TextBrush}" VerticalAlignment="Center"/>
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="34,0,15,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                        <TextBlock Text="↓" Opacity="0.9" FontFamily="Cambria" Padding="25,0,0,2"  FontSize="22" FontWeight="Light" Background="Transparent" Foreground="{DynamicResource TextBrush}" VerticalAlignment="Center"/>
+                        <TextBlock Text="␣" Opacity="0.9" FontFamily="Times New Roman" Padding="20,0,0,2"  FontSize="25" FontWeight="Light" Background="Transparent" Foreground="{DynamicResource TextBrush}" VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Stretch" Margin="45,0,25,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="True" />
@@ -76,7 +76,7 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
                 <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                <Setter Property="Background" Value="#5fb5fb"/>
+                <Setter Property="Background" Value="{DynamicResource ContextHover}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -18,16 +18,16 @@
                     <Grid Background="{DynamicResource GridItemBackgroundBrush}"
                           Margin="{Settings ItemSpacingMargin}"
                           x:Name="ItemGrid">
-                        <Border x:Name="SelectionBorder" BorderThickness="0"/>
+                        <Border x:Name="SelectionBorder" BorderThickness="4" BorderBrush="Transparent" Margin="-4" CornerRadius="3"/>
                         <ContentPresenter />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" TargetName="SelectionBorder"/>
+                            <Setter Property="BorderBrush" Value="White" TargetName="SelectionBorder"/>
                             <Setter Property="Canvas.ZIndex" Value="90" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" TargetName="SelectionBorder"/>
+                            <!--<Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" TargetName="SelectionBorder"/>-->
                             <Setter Property="Canvas.ZIndex" Value="90" />
                         </Trigger>
                         <DataTrigger Binding="{Settings ShowGridItemBackground}" Value="False">
