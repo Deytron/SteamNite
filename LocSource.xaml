@@ -737,10 +737,13 @@ You can try to resolve the issue:
     <sys:String x:Key="LOCPostScriptDescription">Script to execute after exiting a game</sys:String>
     <sys:String x:Key="LOCGameStartedScriptDescription">Script to execute after a game is started</sys:String>
     <sys:String x:Key="LOCExecuteGlobalScript">Execute global script</sys:String>
+<<<<<<< HEAD
     <sys:String x:Key="LOCStatsGlobal">Global</sys:String>
     <sys:String x:Key="LOCStatsFiltered">Filtered</sys:String>
     <sys:String x:Key="LOCMetadataDiffCurrent">Current</sys:String>
     <sys:String x:Key="LOCMetadataDiffNew">New</sys:String>
+=======
+>>>>>>> 335d1030ef1336603adb3805dc4966476eeaee9f
     <!--Game actions-->
     <sys:String x:Key="LOCSaveAsDefault">Save as default</sys:String>
     <sys:String x:Key="LOCFavoriteGame">Add to Favorites</sys:String>
@@ -808,6 +811,7 @@ You can try to resolve the issue:
     <sys:String x:Key="LOCExtInstallationRestartNotif">Playnite must be restarted to complete the installation. Do you want to restart now?</sys:String>
     <sys:String x:Key="LOCGeneralExtensionPackageError">Extension is not packaged properly.</sys:String>
     <sys:String x:Key="LOCGeneralThemePackageError">Theme is not packaged properly.</sys:String>
+<<<<<<< HEAD
     <sys:String x:Key="LOCSpecificExtensionLoadError">Extension "{0}" failed to load properly.</sys:String>
     <sys:String x:Key="LOCSpecificThemeLoadError">Theme "{0}" failed to load properly.</sys:String>
     <sys:String x:Key="LOCGeneralExtensionLoadError">Extension failed to load properly.</sys:String>
@@ -820,10 +824,20 @@ You can try to resolve the issue:
 
 {0}</sys:String>
     <sys:String x:Key="LOCExtensionInstallPrompt" xml:space="preserve">Do you want to install a new extension?
+=======
+    <sys:String x:Key="LOCGeneralExtensionInstallApiVersionFails">Theme/Extension is using unsupported API version.</sys:String>
+    <sys:String x:Key="LOCGeneralExtensionInstallSuccess">Installation was successful.</sys:String>
+    <sys:String x:Key="LOCGeneralExtensionInstallTitle">Install extension?</sys:String>
+    <sys:String x:Key="LOCExtensionInstallFail" xml:space="preserve">Failed to install extension.
+
+{0}</sys:String>
+    <sys:String x:Key="LOCExtensionInstallPrompt" xml:space="preserve">Do you want to install new extension? Existing installation will be overwritten.
+>>>>>>> 335d1030ef1336603adb3805dc4966476eeaee9f
 
 {0}
 By {1}
 Version {2}</sys:String>
+<<<<<<< HEAD
     <sys:String x:Key="LOCExtensionUpdatePrompt" xml:space="preserve">Do you want to update "{0}" extension?
 
 Current version: {1}
@@ -832,14 +846,23 @@ New version: {2}</sys:String>
 
 {0}</sys:String>
     <sys:String x:Key="LOCThemeInstallPrompt" xml:space="preserve">Do you want to install a new theme?
+=======
+    <sys:String x:Key="LOCThemeInstallFail" xml:space="preserve">Failed to install theme.
+
+{0}</sys:String>
+    <sys:String x:Key="LOCThemeInstallPrompt" xml:space="preserve">Do you want to install a new theme? The previous installation will be overwritten.
+>>>>>>> 335d1030ef1336603adb3805dc4966476eeaee9f
 
 {0}
 By {1}
 Version {2}</sys:String>
+<<<<<<< HEAD
     <sys:String x:Key="LOCThemeUpdatePrompt" xml:space="preserve">Do you want to update "{0}" theme?
 
 Current version: {1}
 New version: {2}</sys:String>
+=======
+>>>>>>> 335d1030ef1336603adb3805dc4966476eeaee9f
     <sys:String x:Key="LOCUrlNavigationMessage" xml:space="preserve">You are about to leave Playnite and navigate to the following web page using your default web browser. Do you want to continue?
 
 {0}</sys:String>
