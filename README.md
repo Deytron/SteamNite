@@ -1,15 +1,21 @@
 # SteamNite
 A custom theme that mimics the Steam client's look for Playnite
 
-![img](https://i.imgur.com/qR4NZTk.png)
+![img](https://i.imgur.com/Xb2Pqw7.png)
 
-![img](https://i.imgur.com/Pj62FSA.png)
+![img](https://i.imgur.com/VDJuW9m.png)
 
-![img](https://i.imgur.com/nHBHpgd.png)
+![img](https://i.imgur.com/NMgH912.png)
+
+### Recommended plugins
+
+[Success Story (for achievements)](https://playnite.link/forum/thread-275.html)
+
+[HowLongToBeat](https://playnite.link/forum/thread-309.html)
 
 ## Installation
 
-Just drag and drop the .pthm file into Playnite's window
+Just double click the file or drag and drop the .pthm file into Playnite's window
 
 ## Usage
 
