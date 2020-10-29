@@ -8,9 +8,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GroupItem}">
-                    <Expander BorderThickness="0" IsExpanded="True" Background="{DynamicResource GroupBrush}"
+                    <ExpanderEx BorderThickness="0" IsExpanded="True" Background="{DynamicResource GroupBrush}"
                               ExpanderBehaviors.SaveState="True"
-                              ExpanderBehaviors.SaveStateId="{Binding Name, Mode=OneWay}">
+                              SaveGameGroupId="{Binding Name, Mode=OneWay}">
                         <Expander.Header>
                             <DockPanel Background="Transparent">
                                 <TextBlock DockPanel.Dock="Left"
@@ -38,7 +38,7 @@
                             </DockPanel>
                         </Expander.Header>
                         <ItemsPresenter />
-                    </Expander>
+                    </ExpanderEx>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
