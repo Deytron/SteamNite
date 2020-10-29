@@ -67,8 +67,20 @@
         <GradientStop Color="#202b4d" Offset="0"/>
         <GradientStop Color="{DynamicResource MainColorDark}" Offset="0.4"/>
     </LinearGradientBrush>
+    
     <LinearGradientBrush x:Key="ContextBrush" EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
-        <GradientStop Color="#FF4250CD" Offset="1"/>
-        <GradientStop Color="#FF5592EB" Offset="0"/>
+        <GradientStop Color="#235dce" Offset="1"/>
+        <GradientStop Color="#3a9cee" Offset="0"/>
     </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="PlayButtonHover" EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
+        <GradientStop Color="#70d61e" Offset="0"/>
+        <GradientStop Color="#38be3c" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ContextHover" EndPoint="1,1" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
+        <GradientStop Color="#47bfff" Offset="0"/>
+        <GradientStop Color="#3081e0" Offset="1"/>
+    </LinearGradientBrush>
+
 </ResourceDictionary>
