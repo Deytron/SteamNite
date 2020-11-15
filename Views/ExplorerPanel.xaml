@@ -8,7 +8,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ExplorerPanel}">
-                    <Border BorderBrush="{DynamicResource PanelSeparatorBrush}"
+                    <Border BorderBrush="#17191b"
                             d:DesignWidth="200"
                             d:DesignHeight="400">
                         <Border.Style>
@@ -16,10 +16,10 @@
                                 <Setter Property="BorderThickness" Value="1,0,0,0" />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Settings ExplorerPanelPosition}" Value="Left">
-                                        <Setter Property="BorderThickness" Value="0,0,1,0" />
+                                        <Setter Property="BorderThickness" Value="2,0,2,0"/>
                                     </DataTrigger>
                                     <DataTrigger Binding="{Settings ShowPanelSeparators}" Value="False">
-                                        <Setter Property="BorderThickness" Value="0" />
+                                        <Setter Property="BorderThickness" Value="1" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>

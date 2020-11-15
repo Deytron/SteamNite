@@ -124,8 +124,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListViewItem}">
                     <Grid>
-                        <Rectangle x:Name="HoverRectangle" Visibility="Collapsed" Fill="#2f3036" />
-                        <Rectangle x:Name="SelectedRectangle" Visibility="Collapsed" Fill="#5d6c95" />
+                        <Rectangle x:Name="HoverRectangle" Visibility="Collapsed" Fill="#31394a" />
+                        <Rectangle x:Name="SelectedRectangle" Visibility="Collapsed" Fill="#3e4e69" />
                         <Border Padding="{TemplateBinding Padding}" Background="Transparent">
                             <GridViewRowPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Stretch" />
                         </Border>

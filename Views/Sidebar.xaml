@@ -15,8 +15,11 @@
                                     Width="44" Height="44" Margin="0,0,0,5"
                                     DockPanel.Dock="Top" Padding="5" Cursor="Hand"
                                     WindowChrome.IsHitTestVisibleInChrome="True">
-                                <Image Source="{ThemeFile 'Images/applogo.png'}"
-                                       RenderOptions.BitmapScalingMode="Fant" />
+                                <StackPanel>
+                                    <Rectangle Fill="White" Width="16" Height="1" Margin="0,10,0,4"/>
+                                    <Rectangle Fill="White" Width="16" Height="1" Margin="0,0,0,4"/>
+                                    <Rectangle Fill="White" Width="16" Height="1" Margin="0,0,0,0"/>
+                                </StackPanel>
                             </Border>
 
                             <ItemsControl x:Name="PART_ListSideBarItems"

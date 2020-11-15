@@ -4,6 +4,30 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                     mc:Ignorable="d">
 
+    <Style x:Key="PathSquares" TargetType="Path">
+        <Setter Property="Fill" Value="#4c4d50"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Border}}}"  Value="True">
+                <Setter Property="Fill" Value="White" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsFocused, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Border}}}"  Value="True">
+                <Setter Property="Fill" Value="White" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PathFilters" TargetType="Path">
+        <Setter Property="Fill" Value="#808080"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Border}}}"  Value="True">
+                <Setter Property="Fill" Value="White" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsFocused, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Border}}}"  Value="True">
+                <Setter Property="Fill" Value="White" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
     <Style TargetType="{x:Type MainPanel}">
         <Setter Property="Template">
             <Setter.Value>
@@ -36,50 +60,51 @@
                             <SearchBox x:Name="PART_TextMainSearch"
                                         Margin="5,1,-30,1" DockPanel.Dock="Left"
                                         WindowChrome.IsHitTestVisibleInChrome="True"
-                                        Width="290" Background="#3F000000" BorderBrush="Transparent"/>
+                                        Width="290" Background="#24262c"/>
 
-                            <Border MinWidth="25"  Padding="5" MaxWidth="200" Margin="40,0,-27.5,0" Height="34" CornerRadius="5" Style="{DynamicResource HighlightBackground}" BorderThickness="0" Cursor="Hand">
-                                <CheckBox x:Name="PART_ToggleFilter" Cursor="Hand"
+
+
+
+                            <CheckBox x:Name="PART_ToggleFilter" Margin="40,0,-27.5,0" MinHeight="35"
                                       WindowChrome.IsHitTestVisibleInChrome="True"
-                                      DockPanel.Dock="Left" MinWidth="20">
-                                    <CheckBox.Style>
-                                        <Style TargetType="CheckBox">
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate>
-                                                        <StackPanel Orientation="Horizontal" Height="25">
-                                                            <Image Source="{ThemeFile 'Images/searchsettings.png'}"
-                                                                    Height="15" RenderOptions.BitmapScalingMode="Fant" 
-                                                                      Name="Tweakbutton" Cursor="Hand"/>
-                                                            <TextBlock Text="{StaticResource LOCFilterActiveLabel}"
-                                                                       Style="{StaticResource BaseTextBlockStyle}"
-                                                                       Margin="10,0,0,0" VerticalAlignment="Center"
+                                      DockPanel.Dock="Left" MinWidth="35" MaxWidth="200">
+                                <CheckBox.Style>
+                                    <Style TargetType="CheckBox">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    <Border Name="BorderFilter"  Padding="5" MinWidth="25"  Height="34" CornerRadius="5" Style="{DynamicResource HighlightBackground}" BorderThickness="0" BorderBrush="Transparent">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Path Name="PathSet" Style="{StaticResource PathFilters}" Width="20" Height="20" Margin="2.5,0,0,0" Stretch="Uniform" Data="M 471.48489 1339.38 C 361.51123 1329.5493 267.91653 1265.8486 218.64904 1167.2994 211.9473 1153.894 201.0617 1127.1341 199.8541 1121.096 l -0.59719 -2.9859 -62.13601 -0.365 c -60.398594 -0.3547 -62.373684 -0.4271 -70.636014 -2.5894 -17.59606 -4.6049 -34.40116 -15.118 -46.26161 -28.9408 -6.52724 -7.6072 -15.6580502 -25.0556 -18.4281002 -35.2149 -1.34666997 -4.939 -1.77670997 -10.3425 -1.79066997 -22.5 -0.0158 -13.7896 0.3014 -17.1052 2.29632997 -24 5.04854 -17.44851 16.5777402 -34.74399 30.6840502 -46.03053 8.71319 -6.97147 23.29413 -14.22536 31.13118 -15.48748 20.84304 -3.35667 33.66121 -3.96289 83.993824 -3.97236 l 51.125 -0.01 0.6082 -3.04098 c 1.21719 -6.08598 12.07683 -32.79825 18.80595 -46.25843 42.35977 -84.73138 119.65508 -145.58754 210.33585 -165.60128 23.94283 -5.28431 36.47197 -6.49979 67 -6.49979 25.12043 0 30.93979 0.30122 43.5 2.25163 69.26971 10.75653 126.33905 39.4001 174.54408 87.60514 25.54958 25.54958 43.38372 50.44802 59.48243 83.04408 8.85173 17.92264 18.97349 42.98324 18.97349 46.97671 0 1.34252 52.08842 1.5371 472.75001 1.76602 l 472.75 0.25727 8 2.2659 c 31.3833 8.88893 54.7767 31.93305 63.685 62.7341 1.9886 6.8758 2.3138 10.2485 2.3138 24 0 13.7515 -0.3252 17.1242 -2.3138 24 -8.9083 30.8011 -32.3017 53.8452 -63.685 62.7341 l -8 2.2659 -472.75 0.2573 c -420.66159 0.2289 -472.75001 0.4235 -472.75001 1.766 0 0.8298 -2.05823 7.239 -4.57384 14.2427 -5.62316 15.6554 -18.81969 43.0339 -27.77952 57.6334 -44.07756 71.8219 -114.79587 122.8315 -195.64664 141.1214 -22.01637 4.9805 -36.97433 6.6173 -63.5 6.9489 -13.75 0.1719 -27.025 0.1315 -29.5 -0.09 z m 46.07378 -179.9623 c 79.92197 -13.4155 129.9132 -95.9276 104.37486 -172.27395 C 603.66955 932.54396 553.17061 896 495.98489 896 c -57.40701 0 -107.86952 36.58835 -125.97556 91.33987 -4.48093 13.55003 -6.52444 26.44173 -6.52444 41.16013 0 64.5663 46.49129 119.6458 110.5 130.9124 11.01941 1.9396 32.03525 1.9422 43.57378 0.01 z M 1481.4849 628.39366 c -57.5788 -5.11805 -104.0559 -20.99375 -149 -50.89557 -55.4169 -36.86955 -97.2454 -90.02866 -120.9153 -153.6692 -2.7966 -7.51911 -5.0847 -14.37848 -5.0847 -15.24305 0 -1.42708 -52.1332 -1.59628 -565.75001 -1.83614 l -565.750004 -0.26421 -8.22588 -2.22186 C 40.002356 397.03653 18.910886 379.41616 7.6034058 354.84352 1.0692158 340.64387 0.03811583 335.57312 0.00988583 317.5 c -0.0215 -13.78262 0.29433 -17.10294 2.27913997 -23.95848 5.04104 -17.41175 16.2983302 -34.7479 29.4008802 -45.27715 8.53681 -6.86021 21.11281 -13.46228 32.29498 -16.95403 l 9 -2.81034 566.357004 -0.5 566.35701 -0.5 4.3098 -12.22895 C 1245.955 113.2746 1331.0892 36.598734 1434.0239 13.512364 c 26.4182 -5.9251203 36.4655 -6.9356003 68.961 -6.9356003 32.4955 0 42.5428 1.01048 68.961 6.9356003 96.8565 21.72313 179.2625 91.937106 217.9666 185.718256 4.4003 10.66204 14.8119 41.17208 18.0075 52.76938 4.6966 17.04412 7.5649 39.71671 7.5649 59.7973 0 25.11968 -4.1645 52.91297 -12.2423 81.7027 -1.3888 4.95 -3.0917 11.475 -3.7841 14.5 -4.2878 18.73203 -22.4299 57.41592 -37.7854 80.56866 -51.1124 77.06638 -128.5529 125.80947 -219.1882 137.96287 -10.9658 1.47041 -51.4897 2.70747 -61 1.86213 z m 48 -180.89594 c 25.8508 -5.69134 48.3491 -17.92422 66.9155 -36.38364 35.636 -35.4306 48.2062 -87.46143 32.5601 -134.77421 -14.9436 -45.1883 -51.2043 -77.78222 -98.9756 -88.96684 -6.4081 -1.50031 -11.8803 -1.8674 -27.5 -1.84474 -17.089 0.0248 -20.6746 0.32036 -29 2.39053 -26.284 6.53566 -48.7807 19.51523 -66.7773 38.52737 -33.4584 35.34646 -44.8948 86.2605 -29.6983 132.21394 15.6245 47.24722 55.2513 81.03391 105.4756 89.93063 9.9621 1.76469 36.8613 1.13912 47 -1.09304 z"/>
+                                                            <TextBlock Text="{DynamicResource LOCFilterActiveLabel}"
+                                                                       Style="{DynamicResource BaseTextBlockStyle}"
+                                                                       Margin="3,0,0,0" VerticalAlignment="Center"
                                                                        Name="TextFilter" />
                                                         </StackPanel>
-                                                        <ControlTemplate.Triggers>
-                                                            <Trigger Property="Tag" Value="{StaticResource True}">
-                                                                <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-                                                                <Setter Property="Visibility" Value="Visible" TargetName="TextFilter" />
-                                                            </Trigger>
-                                                            <Trigger Property="Tag" Value="{StaticResource False}">
-                                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-                                                                <Setter Property="Visibility" Value="Collapsed" TargetName="TextFilter" />
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </CheckBox.Style>
-                                </CheckBox>
-                            </Border>
-                            <Border x:Name="PART_ElemViewMenu" BorderThickness="0" Cursor="Hand"
-                                    DockPanel.Dock="Left" Margin="35,0,0,0" Width="33" Height="34" CornerRadius="5"
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="Tag" Value="{StaticResource True}">
+                                                            <Setter Property="Visibility" Value="Visible" TargetName="TextFilter" />
+                                                            <Setter Property="Background" Value="#1e90ff" TargetName="BorderFilter"/>
+                                                            <Setter Property="Fill" Value="White" TargetName="PathSet"/>
+                                                        </Trigger>
+                                                        <Trigger Property="Tag" Value="{StaticResource False}">
+                                                            <Setter Property="Visibility" Value="Collapsed" TargetName="TextFilter" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </CheckBox.Style>
+                            </CheckBox>
+
+                            <Border x:Name="PART_ElemViewMenu" BorderBrush="Transparent"
+                                    DockPanel.Dock="Left" Margin="35,0,0,0"
                                     WindowChrome.IsHitTestVisibleInChrome="True"
                                     Style="{DynamicResource HighlightBackground}">
-                                <Image Source="{ThemeFile 'Images/views.png'}"
-                                       Height="27" RenderOptions.BitmapScalingMode="NearestNeighbor"
-                                       Margin="0,-1,1,0" Name="Tweakbutton"/>
+                                <Path Style="{StaticResource PathSquares}" x:Name="rect201" Data="M13.000002,13 L22.000002,13 22.000002,21 13.000002,21 z M0,13 L9,13 9,21 0,21 z M13.000002,0 L22.000002,0 22.000002,9.0000001 13.000002,9.0000001 z M0,0 L9,0 9,9.0000001 0,9.0000001 z" Height="21" Canvas.Left="23.67" Stretch="Fill" StrokeThickness="0.645033" Canvas.Top="20.045" Width="22"/>
                             </Border>
 
                             <CheckBox x:Name="PART_ToggleNotifications"
@@ -135,7 +160,7 @@
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Left"
                                         HorizontalAlignment="Center" Margin="0,5,0,5">
                                 <Grid MaxWidth="600" MinWidth="300">
-                                    <ProgressBar Name="PART_ProgressGlobal" />
+                                    <ProgressBar Name="PART_ProgressGlobal" BorderBrush="Transparent" BorderThickness="0"/>
                                     <TextBlock Name="PART_TextProgressText"
                                                VerticalAlignment="Center" HorizontalAlignment="Center"
                                                Style="{DynamicResource BaseTextBlockStyle}" Margin="5,0,5,0" />

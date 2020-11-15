@@ -1,0 +1,14 @@
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\bin\Debug\Theme.exe
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\bin\Debug\Theme.pdb
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\bin\Debug\HtmlRenderer.dll
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\bin\Debug\HtmlRenderer.WPF.dll
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\Theme.csprojAssemblyReference.cache
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\App.baml
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\App.g.cs
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\Theme_Content.g.cs
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\Theme_MarkupCompile.cache
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\Theme.g.resources
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\Theme.csproj.CopyComplete
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\Theme.exe
+C:\Users\Romain Ranaivoson\AppData\Local\Playnite\Themes\Desktop\SteamNite git\obj\Debug\Theme.pdb

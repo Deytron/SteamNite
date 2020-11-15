@@ -9,20 +9,20 @@
     <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}"/>
+        <Setter Property="Background" Value="#24262b"/>
         <Setter Property="BorderBrush" Value="{DynamicResource NormalBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
-                    <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{DynamicResource ControlCornerRadius}"
+                    <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3"
                             Style="{DynamicResource HighlightBorder}">
                         <Grid>
                             <ToggleButton x:Name="ToggleButton" Focusable="False" ClickMode="Press" Margin="0,0,2,0"
                                           IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ToggleButton.Template>
                                     <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                        <DockPanel LastChildFill="False" Background="Transparent">
+                                        <DockPanel LastChildFill="False" Background="#3F000000">
                                             <Viewbox DockPanel.Dock="Right" Width="20" >
                                                 <TextBlock Text="6" FontFamily="Marlett" Foreground="{DynamicResource GlyphBrush}"
                                                            VerticalAlignment="Center"/>
@@ -81,7 +81,7 @@
                     <Grid>
                         <Rectangle x:Name="HoverRectangle" IsHitTestVisible="False" Visibility="Collapsed" Fill="{DynamicResource HoverBrush}" />
                         <Rectangle x:Name="SelectedRectangle" IsHitTestVisible="False" Visibility="Collapsed" Fill="{DynamicResource GlyphBrush}" />
-                        <Border Background="Transparent" Padding="{TemplateBinding Padding}">
+                        <Border Background="#3F000000" Padding="{TemplateBinding Padding}">
                             <ContentPresenter VerticalAlignment="Center" />
                         </Border>
                     </Grid>

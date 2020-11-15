@@ -13,6 +13,9 @@
                               SaveGameGroupId="{Binding Name, Mode=OneWay}">
                         <Expander.Header>
                             <DockPanel Background="Transparent">
+                                <DockPanel.ContextMenu>
+                                    <GameGroupMenu />
+                                </DockPanel.ContextMenu>
                                 <TextBlock DockPanel.Dock="Left"
                                            VerticalAlignment="Center" HorizontalAlignment="Left"
                                            TextAlignment="Center" Margin="0,0,5,0">

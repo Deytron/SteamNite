@@ -3,11 +3,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d">
 
+    <Style TargetType="Path" x:Key="VectorIcon">
+        <Setter Property="Fill" Value="#a3a3a3"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Opacity" Value="0.85"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"  Value="True">
+                <Setter Property="Fill" Value="White"/>
+                <Setter Property="Opacity" Value="1.00"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}}"  Value="True">
+                <Setter Property="Fill" Value="White"/>
+                <Setter Property="Opacity" Value="1.00"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
     <Style TargetType="{x:Type DetailsViewGameOverview}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DetailsViewGameOverview}">
-                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Style="{DynamicResource DetailsScrollViewer}" d:DesignWidth="1280" d:DesignHeight="1280" d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameDetailsIntance}">
                         <Grid Background="#262b33">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="385"/>
@@ -42,39 +60,16 @@
                                                 <TranslateTransform Y="55"/>
                                             </TransformGroup>
                                         </StackPanel.RenderTransform>
-                                        <ToggleButton x:Name="DetailsButton" Background="#BF3c3f47" Foreground="{DynamicResource GlyphBrush}" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="0" Opacity="0.85" Padding="0" Width="35" Height="35" Margin="0,450,10,0" Cursor="Hand">
-                                            <ToggleButton.Content>
-                                                <Image Width="20" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="0">
-                                                    <Image.Style>
-                                                        <Style TargetType="{x:Type Image}">
-                                                            <Setter Property="Source" Value="../Images/info.png"/>
-                                                            <Setter Property="Opacity" Value="0.75"/>
-                                                            <Style.Triggers>
-                                                                <Trigger Property="IsMouseOver" Value="True">
-                                                                    <Setter Property="Source" Value="../Images/infohovered.png"/>
-                                                                    <Setter Property="Opacity" Value="1"/>
-                                                                </Trigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </Image.Style>
-                                                </Image>
-                                            </ToggleButton.Content>
+                                        <ToggleButton Style="{DynamicResource ButtonMore}"  x:Name="DetailsButton" Focusable="False" FontSize="18" Width="35" Height="35" Margin="0,450,10,0" Padding="0" Cursor="Hand">
+                                            <Canvas Name="DetailsVector">
+                                                <Path Stretch="Fill" Width="80" Height="80" Style="{StaticResource VectorIcon}" Data="M63.11202,44.563277 L63.11202,77.750766 C63.054468,79.962726 64.12211,80.586612 66.721163,80.845889 L70.898325,80.926913 70.898325,85.075351 38.307615,85.075351 38.307615,80.926913 42.897657,80.845889 C45.642672,80.764865 46.302443,79.727756 46.5068,77.750766 L46.5068,52.784797 C46.53599,48.83163 41.255316,49.452277 37.534407,49.569762 L37.534407,45.458594 z M53.172586,20.256421 C54.792646,20.256421 56.412706,20.663499 57.86434,21.477654 60.767603,23.105963 62.556086,26.115201 62.556086,29.371819 62.556086,32.628438 60.767603,35.637677 57.864336,37.265986 54.961073,38.894296 51.3841,38.894296 48.480833,37.265986 45.57757,35.637677 43.789087,32.628438 43.789083,29.371819 43.789087,26.115201 45.57757,23.105962 48.480837,21.477654 49.932467,20.663499 51.552526,20.256421 53.172586,20.256421 z M54.216364,8.1024134 C28.893152,8.1024132 8.3409793,28.066762 8.3409791,52.665694 8.3409793,77.264621 28.893152,97.228976 54.216364,97.228976 79.539576,97.228976 100.09175,77.264621 100.09175,52.665694 100.09175,28.066762 79.539576,8.1024132 54.216364,8.1024134 z M54.216364,0 C84.143801,-9.5367432E-07 108.43273,23.59423 108.43273,52.665694 108.43273,81.737155 84.143801,105.33139 54.216364,105.33139 24.288931,105.33139 0,81.737155 0,52.665694 0,23.59423 24.288931,-9.5367432E-07 54.216364,0 z" Canvas.Left="427" Canvas.Top="-494"/>
+                                                <Canvas.RenderTransform>
+                                                    <MatrixTransform Matrix="-0.26458333 0 0 0.26458333 123.22058 120.19643"/>
+                                                </Canvas.RenderTransform>
+                                            </Canvas>
                                         </ToggleButton>
                                         <Button Style="{DynamicResource ButtonGameEdit}" x:Name="PART_ButtonMoreActions" Opacity="0.85" Focusable="False" FontSize="18" Width="35" Height="35" Margin="0,450,0,0" Padding="0" Cursor="Hand">
-                                            <Image Height="20" Width="18">
-                                                <Image.Style>
-                                                    <Style TargetType="{x:Type Image}">
-                                                        <Setter Property="Source" Value="../Images/settings.png"/>
-                                                        <Setter Property="Opacity" Value="0.75"/>
-                                                        <Style.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter Property="Source" Value="../Images/settingshovered.png"/>
-                                                                <Setter Property="Opacity" Value="1"/>
-                                                            </Trigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Image.Style>
-                                            </Image>
+                                            <Path Style="{StaticResource VectorIcon}" Stretch="Fill" Width="17" Height="17" Data="m 12.017193 16.202377 a 4.1923406 4.1923406 0 0 1 -4.192339 -4.19234 4.1923406 4.1923406 0 0 1 4.192339 -4.1923414 4.1923406 4.1923406 0 0 1 4.192342 4.1923414 4.1923406 4.1923406 0 0 1 -4.192342 4.19234 m 8.89974 -3.030464 c 0.04791 -0.3833 0.08384 -0.7666 0.08384 -1.161876 0 -0.395279 -0.03594 -0.790556 -0.08384 -1.197813 L 23.444317 8.8597913 C 23.6719 8.68012 23.731791 8.3567105 23.588054 8.0931924 L 21.19243 3.9487643 C 21.048693 3.6852457 20.725284 3.5774426 20.461766 3.6852457 L 17.479214 4.8830572 C 16.856352 4.4159106 16.209535 4.0086547 15.454912 3.7092019 L 15.011723 0.53500108 C 14.963809 0.24752629 14.712269 0.0319202 14.412817 0.0319202 H 9.6215717 c -0.2994535 0 -0.5509933 0.21560609 -0.5989059 0.50308088 L 8.5794752 3.7092019 C 7.824854 4.0086547 7.1780356 4.4159106 6.5551737 4.8830572 L 3.5726227 3.6852457 c -0.2635185 -0.1078031 -0.5869276 0 -0.730665 0.2635186 L 0.44633444 8.0931924 C 0.29061892 8.3567105 0.36248711 8.68012 0.59007182 8.8597913 L 3.1174543 10.812224 c -0.047912 0.407257 -0.083847 0.802534 -0.083847 1.197813 0 0.395276 0.035935 0.778576 0.083847 1.161876 l -2.52738248 1.988366 c -0.2275842 0.179673 -0.2994529 0.503081 -0.14373738 0.766599 l 2.39562336 4.144431 c 0.1437374 0.263517 0.4671464 0.359342 0.730665 0.263517 l 2.9825509 -1.209789 c 0.6228619 0.479125 1.2696804 0.88638 2.0243015 1.185833 l 0.4431906 3.174202 c 0.047912 0.287474 0.2994524 0.503079 0.5989059 0.503079 h 4.7912453 c 0.299452 0 0.550994 -0.215605 0.598906 -0.503079 l 0.443189 -3.174202 c 0.754623 -0.31143 1.40144 -0.706708 2.024302 -1.185833 l 2.982552 1.209789 c 0.263518 0.09583 0.586927 0 0.730664 -0.263517 l 2.395624 -4.144431 c 0.143737 -0.263518 0.08384 -0.586926 -0.143737 -0.766599 z"/>
                                         </Button>
                                     </StackPanel>
                                     <StackPanel VerticalAlignment="Bottom" DockPanel.Dock="Top" HorizontalAlignment="Stretch">
@@ -127,78 +122,195 @@
                                                 <TextBlock Grid.Row="1" x:Name="PART_TextLastActivity" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
                                             </StackPanel>
                                             <StackPanel Grid.Column="2" Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="25,0,0,7">
-                                                <Image Source="{ThemeFile Images/timeplayed.png}"
-                                                                    Height="25" RenderOptions.BitmapScalingMode="Fant"
-                                                                    Margin="0,0,0,0"/>
+                                                <Path Stretch="Uniform" Fill="#FFB3B3B3" Width="30" Height="30" Data="m 817.76843 -21.374018 c -13.798 1.44153 -27.473 4.75149 -41 7.75109 -29.429 6.5263996 -56.882 13.90209958 -73.309 41.7787 -26.444 44.876 -1.064 105.745998 50.309 116.731998 7.14 1.527 14.704 2.554 22 1.896 13.232 -1.193 26.037 -5.089 39 -7.815 30.437 -6.401 58.993 -11.867 76.427 -40.812998 27.072 -44.9495 3.049 -105.1577004 -48.427 -117.57336 -8.13 -1.96094 -16.671 -2.82654 -25 -1.95643 m -276 1632.529818 -2 1 -2 -6 -15.982 -8.21 -18.018 -14.79 h -4 c -3.531 -5.34 -8.797 -10.11 -15 -12 l -7 -9 -9 -5 -17 -18 -2 1 -11 -13 -2 1 -5 -5 -1 -4 -2 1 -5 -5 -1 -4 -2 1 -1 -4 -2 1 -7 -11 -2 1 -1 -4 -2 1 -11 -15 -2 1 c -6.37 -13.9 -23.404 -31.54 -39 -34 -7.489 -6.53 -19.406 -7.49 -28.963 -7.65 -29.233 -0.48 -58.748 15.31 -72.483 41.65 -10.9 20.9 -12.581 46.12 -3.39 68 3.774 8.98 9.854 16.71 14.836 25 l 2 -1 12 17 2 -1 4 8 2 -1 22 26 2 -1 1 4 2 -1 8 8 9 12 2 -1 25 26 2 -1 c 4.842 7.5 14.495 16.9 23 20 l 9 10 2 -1 c 3.579 5.22 8.966 9.95 15 12 v 2 l 2 -1 c 3.913 5.88 10.068 9.61 15.595 13.88 13.534 10.44 28.044 18.69 42.405 27.84 54.159 34.5 112.013 63.47 172 86.35 183.9 70.15 387.90997 82.15 578.99997 35.05 89.89 -22.16 175.76 -57.23 256 -103.27 92.82 -53.25 176.13 -123.72 245.71 -204.85 78.05 -91 139.36 -196 179.56 -309 86.75 -243.83 69.76 -519.57803 -43.54 -752.00003 -35.96 -73.771 -81.92 -142.839 -135.45 -205 -71.64 -83.183 -157.99 -154.082 -253.28 -208.570998 -70.41 -40.2588 -145.68 -72.0899 -224 -93.3338004 -28.67 -7.7777 -58.43 -16.1931996 -88 -19.6808896 -24.81 -2.92676 -49.91 3.78999 -67.85 21.73208958 -35.65 35.63840042 -27.44 98.23660042 15.85 123.74159842 14.06 8.281 30.29 10.137 46 13.315 19.87 4.019 39.51 8.933 59 14.512 59.89 17.142 117.6 41.301 172 71.619 102.05 56.874 191.93 136.309 260.82 230.666 95.36 130.624 151.22 291.177 156.12 453 2.91 95.89003 -10.81 193.06003 -41.63 284.00003 -37.59 110.9 -98.93 213.87 -179.45 299 -67.92 71.82 -148.8 131.27 -237.86 174.22 -156.78 75.6 -338.227 99.68 -508.99997 65.58 -76.622 -15.3 -152.176 -40.6 -221 -77.89 -22.582 -12.24 -47.556 -23.88 -67 -40.91 m -10 -1527.514028 c -18.758 2.146 -34.132 11.342 -50 20.918998 -24.905 15.031 -51.2 29.693 -61.588 58.595 -13.14 36.56 2.697 79.258 37.588 97.056 14.5 7.396 30.928 9.269 47 7.638 18.371 -1.865 32.823 -12.265 48 -21.754 13.629 -8.521 28.91 -15.713 40.859 -26.589 10.461 -9.521 17.706 -21.865 21.73 -35.351 15.757 -52.813 -28.452 -106.821998 -83.589 -100.513998 m -235 194.025998 c -32.489 4.1 -50.816 27.469 -69.999 51.488 -15.6 19.533 -29.984 38.164 -31.799 64 -3.448 49.106 40.689 88.56 88.798 82.488 16.911 -2.134 32.738 -9.648 44.901 -21.634 9.364 -9.228 16.721 -20.625 24.939 -30.854 15.236 -18.964 29.689 -35.748 31.879 -61 4.335 -49.998 -39.294 -90.726 -88.719 -84.488 m 699 7 c -25.484 3.223 -47.082 21.451 -53.547 46.488 -3.444 13.339 -2.453 27.356 -2.453 41 v 63 316 98 30 c 0 5.025 0.79 10.895 -0.546 15.785 -1.241 4.542 -5.658 6.492 -9.462 8.575 -7.248 3.972 -14.61 7.679 -21.992 11.393 -31.155 15.673 -62.028 31.995 -93 48.032 -124.966 64.70503 -249.576 130.16503 -375 193.97503 -14.772 7.52 -27.672 17.66 -34.464 33.24 -16.763 38.44 7.184 84.14 49.464 89.49 23.481 2.97 41.973 -8.34 62 -18.71 27.964 -14.47 56.348 -28.26 84 -43.33 26.98 -14.7 54.715 -28.11 82 -42.23 81.988 -42.46 164.433 -84.14 246 -127.39 32.773 -17.38 65.825 -34.48 98.99997 -51.08003 8.74 -4.37 17.27 -9.11 26 -13.5 3.89 -1.96 9.66 -3.84 11.82 -7.94 2.96 -5.576 1.18 -15.173 1.18 -21.31 v -49 -178 -352 c 0 -14.982 1.94 -31.46 -2.27 -46 -8.53 -29.488 -38.54 -48.306 -68.72997 -44.488 m -855 254.039 c -23.011 3.272 -43.613596 17.557 -55.425596 37.449 -5.6935 9.588 -8.9529 20.576 -12.757 31 -7.3255 20.074 -16.8555 42.238 -15.6772 64 2.506 46.284 44.182396 80.18 89.859796 73.919 23.485 -3.219 44.789 -17.265 56.572 -37.919 6.374 -11.172 9.715 -23.867 13.761 -36 6.429 -19.276 15.683 -38.181 14.528 -59 -2.596 -46.792 -44.949 -79.976 -90.861 -73.449 m -57.999996 297 c -30.9055 4.394 -56.6567 28.25 -64.0091 58.449 -3.4527 14.182 -1.9909 29.514 -1.9909 44 0 18.357 -1.5302 37.29 4.2682 55 11.5208 35.18003 48.3089 57.24003 84.731796 52.26003 31.764 -4.35 58.715 -27.66 65.908 -59.26003 3.425 -15.045 1.315 -29.818 1.11 -45 -0.23 -17.002 2.141 -34.459 -2.82 -51 -11.231 -37.446 -48.933 -59.889 -87.197996 -54.449 m 49.999996 298.91903 c -9.801 1.04 -19.159 3.41 -28 7.83 -7.253696 3.63 -14.087996 8.18 -19.905796 13.86 -18.4623 18 -26.2633 44.54 -22.2958 69.84 2.2523 14.36 8.3516 28.43 13.3941 42 4.8729 13.11 9.0916 27.28 16.8857 39 16.427596 24.71 45.515796 37.84 74.921796 34.61 43.021 -4.73 71.977 -43.44 68.793 -85.61 -1.264 -16.74 -9.24 -32.45 -14.971 -48 -4.877 -13.24 -8.33 -27.01 -16.063 -39 -15.333 -23.77 -44.695 -37.49 -72.759 -34.53 m 408 465.53 1 1 -1 -1 m -2 3 1 1 z"/>
                                             </StackPanel>
                                             <StackPanel Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,15,0,0">
                                                 <Label Grid.Row="1" x:Name="PART_ElemPlayTime" Width="Auto" Height="27" Foreground="#b4b4b4" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCTimePlayed}"/>
                                                 <TextBlock Grid.Row="1" x:Name="PART_TextPlayTime" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
                                             </StackPanel>
-                                            <StackPanel Grid.Column="4" Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="25,0,0,7" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}">
-                                                <Image Source="{ThemeFile 'Images/achievement.png'}"
-                                                                    Height="30" RenderOptions.BitmapScalingMode="Fant"
-                                                                    Margin="0,0,0,0"></Image>
-                                            </StackPanel>
-                                            <Label x:Name="label" Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="4" Content="{DynamicResource LOCSucessStoryAchievements}" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" 
-                                                   VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FFB4B4B4" Margin="10,15,0,0" Tag="{DynamicResource Sc_HasData}">
-                                                <Label.Style>
-                                                    <Style TargetType="Label">
-                                                        <Setter Property="Padding" Value="0,0,0,0" />
-                                                        <Setter Property="Foreground" Value="#b4b4b4" />
-                                                        <Setter Property="Visibility" Value="Visible" />
+
+                                            <StackPanel Grid.Column="4" Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="25,0,0,7" Tag="{DynamicResource Sc_HasData}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Visible" />
                                                         <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
                                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
-                                                </Label.Style>
-                                            </Label>
-                                            <Label Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="1" Name="UnlockedAchievements" Content="{DynamicResource Sc_UnlockedDouble}" 
-                                                   Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Margin="10,0,0,0"
-                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
-                                            <Label Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="1" Name="SeparateAchievements" Content="/"  
-                                                   Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" 
-                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
-                                            <Label Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="1" Name="TotalAchievements" Content="{DynamicResource Sc_TotalDouble}"
-                                                   Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tahoma" Foreground="#FF626164" Margin="0,0,5,0"
-                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
-                                            <ProgressBar x:Name="progressBar" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="1" FontSize="10" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
-                                                         Maximum="{DynamicResource Sc_TotalDouble}" Value="{DynamicResource Sc_UnlockedDouble}"
-							                             Margin="0,4,0,0" Background="Black" Foreground="#FF0071FF" Width="100" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource RoundedProgressBar}">
-                                                <ProgressBar.Resources>
-                                                    <Style x:Key="RoundedProgressBar" TargetType="{x:Type ProgressBar}">
-                                                        <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                        <Setter Property="Foreground" Value="#FF0071FF"/>
-                                                        <Setter Property="Background" Value="{DynamicResource NormalBrushDark}"/>
-                                                        <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
-                                                        <Setter Property="Template">
-                                                            <Setter.Value>
-                                                                <ControlTemplate TargetType="{x:Type ProgressBar}">
-                                                                    <Border BorderThickness="{TemplateBinding BorderThickness}"
-													                        CornerRadius="{DynamicResource ControlCornerRadius}">
-                                                                        <Border.BorderBrush>
-                                                                            <SolidColorBrush Color="#5555CDFF" Opacity="0"/>
-                                                                        </Border.BorderBrush>
-                                                                        <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                                                                            <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4"/>
-                                                                            <Rectangle x:Name="PART_Track" Margin="0" RadiusY="4" RadiusX="4"/>
-                                                                            <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
-                                                                                <Grid>
-                                                                                    <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4"/>
-                                                                                </Grid>
-                                                                            </Decorator>
-                                                                        </Grid>
-                                                                    </Border>
-                                                                </ControlTemplate>
-                                                            </Setter.Value>
-                                                        </Setter>
+                                                </StackPanel.Style>
+                                                <Path Stretch="Uniform" Fill="#FFB7B7B7" Width="30" Height="30" Data="m 119.51845 461.85186 c 2.846 7.774 8.274 15.003 12.681 22 6.246 9.916 12.979 31.213 27.275 28.852 4.476 -0.739 5.613 -5.215 7.275 -8.852 3.919 -8.58 7.44 -17.347 11.193 -26 11.299 -26.048 22.603 -52.115 34.27 -78 3.962 -8.789 7.166 -23.747 14.005 -30.592 2.712 -2.714 7.006 -0.738 10.301 -0.498 7.646 0.557 14.524 -0.903 22 -1.91 2.501 14.031 11.831 28.993 17.694 42 10.911 24.202 21.439 48.593 31.885 73 4.624 10.805 8.803 33.183 23.406 30.852 5.38 -0.859 7.834 -6.606 10.298 -10.852 5.294 -9.12 11.042 -17.987 16.514 -27 2.209 -3.639 4.631 -9.925 9.243 -10.958 4.137 -0.925 9.881 1.342 13.96 2.158 l 31 6.2 c 5.309 1.061 13.461 3.73 17.397 -1.548 3.316 -4.448 0.247 -10.512 -1.703 -14.852 -5.075 -11.3 -9.909 -22.707 -15 -34 -11.961 -26.534 -23.04 -53.467 -35 -80 -6.544 -14.519 -10.395 -26.64 -13.159 -42 -0.889 -4.941 -3.568 -9.889 -2.977 -15 2.126 -18.379 19.701 -16.302 32.442 -20.043 10.061 -2.955 17.998 -10.358 22.121 -19.957 5.008 -11.658 3.728 -26.096 -4.45 -36 -6.169 -7.472 -15.824 -12.295 -16.574 -23 -1.117 -15.937 19.278 -23.664 23.003 -39 4.582 -18.862 -6.796 -37.483 -25.1 -43.096 -10.569 -3.2406 -20.891 0.127 -28.03 -10.907801 -5.886 -9.0979 -0.439 -17.446 -0.009 -26.996203 0.792 -17.6049 -10.83 -32.8508 -27.961 -37.2392 -18.218 -4.6668 -34.05 17.1652 -50 8.7971 -9.527 -4.9983 -10.228 -14.5974 -15.8 -22.5579 -9.461 -13.515533 -26.566 -17.19214 -42.2 -13.46759 -20.066 4.78058 -17.799 31.56989 -36 36.82949 -10.372 2.997 -17.151 -4.5654 -26 -8.1049 -13.015 -5.2062 -28.056 -1.9125 -37.985 7.7831 -7.873 7.6881 -12.028 17.9136 -10.841 28.9599 1.036 9.648203 5.925 16.758203 -0.144 25.985403 -6.735 10.239601 -16.904 7.585001 -27.029999 10.303601 -14.4096 3.87 -26.2154 16.397 -26.9599 31.711 -0.4633 9.531 1.8406 18.629 8.1698 25.999 6.5302 7.605 16.3231 12.53 15.6821 24.001 -0.584 10.442 -9.4517 14.953 -15.5633 22.039 -7.8071 9.053 -10.4489 22.611 -6.7307 33.961 3.276 10 11.3418 19.401 21.402 22.899 14.290999 4.969 36.506999 2.315 33.815999 25.101 -5.583 47.264 -32.445999 92.504 -51.676299 136 -4.7157 10.666 -9.5903 21.26 -14.1397 32 -1.8487 4.364 -4.5281 9.586 -0.5664 13.682 4.2933 4.439 12.4075 1.797 17.5664 0.767 15.668 -3.128 31.311999 -6.407 46.999999 -9.449 m 120 -447.695204 c 15.185 -2.0622 18.837 10.3993 25.119 20.6952 5.133 8.4136 13.232 15.4624 22.881 18.0725 19.261 5.2103 34.888 -18.06 51.999 -7.848 14.686 8.7643 7.862 21.5824 7.094 34.775503 -0.447 7.6824 2.25 15.792 6.696 22.000001 5.102 7.124 12.653 12.674 21.211 14.761 10.611 2.587 22.914 0.631 27.852 13.239 8.318 21.237 -21.898 31.108 -22.813 52 -0.38 8.697 2.703 17.302 8.29 23.996 7.892 9.456 18.445 14.712 15.142 29.004 -3.586 15.514 -17.51 13.399 -29.471 16.478 -7.683 1.978 -13.645 6.437 -18.671 12.522 -5.624 6.808 -9.093 16.115 -8.155 25 1.071 10.153 6.145 19.861 -1.564 28.907 -12.172 14.279 -24.733 2.565 -37.61 -2.196 -9.342 -3.454 -20.35 -2.032 -29 2.613 -14.03 7.534 -16.145 31.962 -32 34.462 -17.18 2.71 -20.049 -10.144 -27.549 -21.786 -4.942 -7.671 -12.568 -13.67 -21.451 -16.073 -7.709 -2.085 -16.827 -1.23 -24 2.207 -8.989 4.307 -17.633 11.672 -28 5.776 -15.961 -9.076 -8.511 -21.93 -8.043 -35.91 0.273 -8.168 -3.085 -16.497 -7.884 -22.996 -12.267 -16.608 -41.096999 -7.601 -48.103099 -27.004 -7.6238 -21.115 22.086099 -30.36 22.991099 -51 0.366 -8.355 -1.924 -16.492 -7.289999 -23 -8.227 -9.98 -19.7596 -16.099 -16.1378 -31 3.4373 -14.142 16.4938 -12.652 27.466799 -15.236 8.068 -1.9 15.345 -6.386 20.671 -12.768 5.538 -6.635501 8.984 -16.315001 8.158 -24.996001 -0.942 -9.885103 -6.122 -19.810203 0.971 -28.825603 12.329 -15.6705 25.981 -2.3838 39.2 2.2777 8.021 2.8284 17.442 2.0004 25 -1.7252 6.688 -3.2967 12.641 -8.2991 16.521 -14.7269 5.751 -9.5287 7.344 -19.9115 20.479 -21.6952 m -9 63.119603 c -17.735 2.3571 -34.083 7.409 -49 17.6042 -74.843 51.151401 -55.206 168.938401 32 193.543401 12.912 3.643 27.657 4.78 41 3.142 15.679 -1.926 30.47 -7.236 44 -15.318 80.161 -47.884 60.398 -175.7991 -31 -196.744801 -11.801 -2.7043 -24.954 -3.8277 -37 -2.2268 m 3 6.8611 c 10.947 -1.3092 22.36 0.2465 33 2.8441 84.814 20.707401 103.846 143.202401 25 185.088401 -10.896 5.789 -22.659 10.235 -35 11.615 -30.19 3.378 -61.537 -4.386 -83.91 -26.004 -46.753 -45.171 -38.398 -124.721 16.91 -159.015001 13.392 -8.3034 28.43 -12.6664 44 -14.5285 m 1 27.139501 c -11.435 1.557 -22.227 4.991 -32 11.273 -8.037 5.167 -14.794 11.467 -20.279 19.302 -36.412 52.015 7.859 122.822 70.279 114.711 9.887 -1.285 19.508 -4.76 28 -9.915 63.637 -38.632 29.782 -145.686 -46 -135.371 m 0 7.861 c 67.76 -8.321 101.14 85.983 42 121.261 -7.861 4.689 -16.896 7.978 -26 9.164 -67.388 8.778 -103.847 -86.466 -43 -121.374 8.402 -4.82 17.388 -7.87 27 -9.051 m -79 369.714 c -14.742 -7.64 -14.987 -34.596 -30.015 -41.958 -4.233 -2.073 -10.642 0.489 -14.985 1.358 -11.712999 2.343 -24.066999 6.08 -35.999999 6.6 2.8571 -12.028 9.6248 -23.753 14.694 -35 8.21 -18.214 16.042999 -36.623 23.884999 -55 3.281 -7.691 6.718 -15.31 10 -23 1.146 -2.687 2.288 -7.531 4.919 -9.169 2.825 -1.758 6.269 1.683 8.502 3.076 5.551 3.463 11.48 5.137 18 5.088 17.34 -0.128 32.913 -22.1 48.786 -4.901 2.136 2.315 3.403 5.005 4.53 7.906 1.402 3.609 4.022 7.261 4.881 11 2.12 9.231 -9.984 26.507 -13.618 35 -13.884 32.444 -25.854 68.517 -43.579 99 m 201 -157 35.86 83 16.14 39 c -11.688 -0.097 -23.564 -3.749 -35 -5.999 -4.37 -0.86 -10.762 -3.093 -14.985 -0.969 -14.985 7.536 -15.244 34.313 -30.015 41.968 -15.468 -26.601 -25.417 -57.835 -37.86 -86 -6.077 -13.754 -16.892 -30.174 -19.398 -45 -1.212 -7.174 7.567 -21.316 13.262 -25.146 15.54 -10.451 28.538 7.619 43.996 8.537 10.897 0.648 18.099 -7.476 28 -9.391 z"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,15,0,0" Tag="{DynamicResource Sc_HasData}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
                                                     </Style>
-                                                </ProgressBar.Resources>
-                                            </ProgressBar>
-                                            <Button Grid.Column="4" Grid.ColumnSpan="5" Grid.RowSpan="2" Name="PART_ScCustomButton" Cursor="Hand" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
-                                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True" Margin="25,23,0,5" ToolTip="{Binding Value, ConverterParameter=\{DynamicResource Sc_TotalDouble\}, Converter={StaticResource ValueConverterGroup}, ElementName=progressBar, Mode=OneWay, StringFormat=\{0:P\}}"/>
+                                                </StackPanel.Style>
+
+                                                <Label x:Name="label" Content="{DynamicResource LOCSuccessStoryAchievements}" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" 
+                                                    Foreground="#FFB4B4B4" Tag="{DynamicResource Sc_HasData}">
+                                                    <Label.Style>
+                                                        <Style TargetType="Label">
+                                                            <Setter Property="Padding" Value="0,0,0,0" />
+                                                            <Setter Property="Foreground" Value="#b4b4b4" />
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Label.Style>
+                                                </Label>
+
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="1" Height="20" VerticalAlignment="Top" 
+                                                        HorizontalAlignment="Left" Margin="10,0,0,0" Tag="{DynamicResource Sc_HasData}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <Label Name="UnlockedAchievements" Content="{DynamicResource Sc_UnlockedDouble}" 
+                                                   FontFamily="Tahoma" Foreground="#FF626164" 
+                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
+
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="1" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Tag="{DynamicResource Sc_HasData}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <Label Name="SeparateAchievements" Content="/"  
+                                                   FontFamily="Tahoma" Foreground="#FF626164" 
+                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Margin="0,0,5,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="1" Tag="{DynamicResource Sc_HasData}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <Label Name="TotalAchievements" Content="{DynamicResource Sc_TotalDouble}"
+                                                   FontFamily="Tahoma" Foreground="#FF626164" 
+                                                   Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"/>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="1" Margin="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Tag="{DynamicResource Sc_HasData}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <ProgressBar x:Name="progressBar" FontSize="10" Visibility="{Binding Visibility, ElementName=label, Mode=OneWay}"
+                                                         Maximum="{DynamicResource Sc_TotalDouble}" Value="{DynamicResource Sc_UnlockedDouble}"
+							                              Background="Black" Foreground="#FF0071FF" Width="100" Height="10"  Style="{DynamicResource RoundedProgressBar}">
+                                                    <ProgressBar.Resources>
+                                                        <Style x:Key="RoundedProgressBar" TargetType="{x:Type ProgressBar}">
+                                                            <Setter Property="SnapsToDevicePixels" Value="True" />
+                                                            <Setter Property="Foreground" Value="#FF0071FF"/>
+                                                            <Setter Property="Background" Value="{DynamicResource NormalBrushDark}"/>
+                                                            <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                                                                        <Border BorderThickness="{TemplateBinding BorderThickness}"
+													                        CornerRadius="{DynamicResource ControlCornerRadius}">
+                                                                            <Border.BorderBrush>
+                                                                                <SolidColorBrush Color="#5555CDFF" Opacity="0"/>
+                                                                            </Border.BorderBrush>
+                                                                            <Grid SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                                                                <Rectangle Fill="{TemplateBinding Background}" RadiusY="4" RadiusX="4"/>
+                                                                                <Rectangle x:Name="PART_Track" Margin="0" RadiusY="4" RadiusX="4"/>
+                                                                                <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                                                                                    <Grid>
+                                                                                        <Rectangle Fill="{TemplateBinding Foreground}" RadiusY="4" RadiusX="4"/>
+                                                                                    </Grid>
+                                                                                </Decorator>
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style>
+                                                    </ProgressBar.Resources>
+                                                </ProgressBar>
+
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="4" Grid.ColumnSpan="5" Grid.RowSpan="2" Tag="{DynamicResource Sc_HasData}">
+                                                <StackPanel.Style>
+                                                    <Style>
+                                                        <Setter Property="Control.Visibility" Value="Visible" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="{x:Null}">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                                <Setter Property="Control.Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Style>
+
+                                                <Button Cursor="Hand" Margin="25,23,0,5"
+                                                    Background="Transparent" BorderBrush="Transparent" BorderThickness="0" SnapsToDevicePixels="True" ToolTip="{Binding Value, ConverterParameter=\{DynamicResource Sc_TotalDouble\}, Converter={StaticResource ValueConverterGroup}, ElementName=progressBar, Mode=OneWay, StringFormat=\{0:P\}}"/>
+                                            </StackPanel>
+
                                             <StackPanel Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,15,0,0">
                                                 <Label Grid.Column="3" x:Name="PART_ElemCompletionStatus" Width="Auto" Height="27" Foreground="#b4b4b4" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCCompletionStatus}"/>
                                                 <TextBlock Grid.Row="1" x:Name="PART_TextCompletionStatus" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
@@ -328,11 +440,11 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </StackPanel.Style>
-                                            <StackPanel Orientation="Horizontal" Width="300" HorizontalAlignment="Left" Height="30" Margin="0,0,0,5" VerticalAlignment="Center">
+                                            <StackPanel Orientation="Horizontal" Width="300" HorizontalAlignment="Left" Margin="0,0,0,5" VerticalAlignment="Center">
                                                 <TextBlock FontSize="15" Foreground="#94a1a6" Margin="0,0,10,5" VerticalAlignment="Center">How long to beat</TextBlock>
                                                 <Button Name="PART_HltbCustomButton">📑</Button>
                                             </StackPanel>
-                                            <StackPanel Name="PART_hltbProgressBar" Width="500" Height="25" HorizontalAlignment="Left"/>
+                                            <StackPanel Name="PART_hltbProgressBar" Width="500" HorizontalAlignment="Left"/>
                                         </StackPanel>
                                         <HtmlTextView x:Name="PART_HtmlDescription" Margin="0,0,0,10" HtmlFontSize="{DynamicResource FontSize}" HtmlFontFamily="{DynamicResource FontFamily}" HtmlForeground="#898989" LinkForeground="{DynamicResource GlyphColor}"
                                                       Height="Auto"/>

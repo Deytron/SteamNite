@@ -17,7 +17,10 @@
 
     <Style x:Key="HighlightBackground" TargetType="Border" BasedOn="{StaticResource {x:Type Border}}">
         <Setter Property="Background" Value="#3F000000"/>
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Width" Value="35"/>
+        <Setter Property="Height" Value="34"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="CornerRadius" Value="5" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
         <Style.Triggers>
@@ -30,5 +33,4 @@
         </Style.Triggers>
     </Style>
 
-    
 </ResourceDictionary>
