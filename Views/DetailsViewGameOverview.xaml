@@ -313,7 +313,7 @@
 
                                             <StackPanel Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,15,0,0">
                                                 <Label Grid.Column="3" x:Name="PART_ElemCompletionStatus" Width="Auto" Height="27" Foreground="#b4b4b4" FontSize="21" FontFamily="Corbel" Typography.Capitals="AllSmallCaps" Content="{DynamicResource LOCCompletionStatus}"/>
-                                                <TextBlock Grid.Row="1" x:Name="PART_TextCompletionStatus" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
+                                                <Button Grid.Row="1" x:Name="PART_ButtonCompletionStatus" VerticalAlignment="Center" TextBlock.Foreground="#626164" Width="Auto" Height="20"/>
                                             </StackPanel>
                                         </Grid>
                                     </StackPanel>
@@ -344,13 +344,13 @@
                                                 <Label Padding="0" Name="PART_ElemLibrary" Content="{DynamicResource LOCGameProviderTitle}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
                                                 <Button Padding="0" Background="Transparent" Name="PART_ButtonLibrary" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
                                                 <Label Padding="0" Name="PART_ElemPlatform" Content="{DynamicResource LOCPlatformTitle}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonPlatform" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
+                                                <ItemsControl Padding="0" Background="Transparent" Name="PART_ItemsPlatforms" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
                                                 <Label Padding="0" Name="PART_ElemDevelopers" Content="{DynamicResource LOCDeveloperLabel}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
                                                 <ItemsControl Padding="0,3,0,0" Name="PART_ItemsDevelopers" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
                                                 <Label Padding="0" Name="PART_ElemPublishers" Content="{DynamicResource LOCPublisherLabel}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
                                                 <ItemsControl Padding="0,3,0,0" Name="PART_ItemsPublishers" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
                                                 <Label Padding="0" Name="PART_ElemAgeRating" Content="{DynamicResource LOCAgeRatingLabel}" Margin="0,0,20,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonAgeRating" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
+                                                <ItemsControl Padding="0" Background="Transparent" Name="PART_ItemsAgeRatings" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
                                             </GridEx>
                                             <GridEx Height="150" ColumnCount="20" AutoLayoutColumns="2" RowCount="20" Grid.Column="2" Margin="15,0,0,0">
                                                 <Label Name="PART_ElemReleaseDate" Content="{DynamicResource LOCGameReleaseDateTitle}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
@@ -371,7 +371,7 @@
                                                 <TextBlock Name="PART_TextUserScore" VerticalAlignment="Center" Style="{DynamicResource TextBlockGameScore}" Margin="0,0,0,0"/>
 
                                                 <Label Name="PART_ElemSeries" Content="{DynamicResource LOCSeriesLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonSeries" VerticalAlignment="Center" Margin="0,0,0,0" Foreground="#d3d3d3"/>
+                                                <ItemsControl Padding="0" Background="Transparent" Name="PART_ItemsSeries" VerticalAlignment="Center" Margin="0,0,0,0" Foreground="#d3d3d3"/>
 
                                                 <Label Name="PART_ElemVersion" Content="{DynamicResource LOCVersionLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
                                                 <Button Padding="0" Background="Transparent" Name="PART_ButtonVersion" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3"/>
@@ -399,7 +399,7 @@
                                                 <Button Padding="0" Background="Transparent" Name="PART_ButtonSource" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#d3d3d3" Height="30"/>
 
                                                 <Label Name="PART_ElemRegion" Content="{DynamicResource LOCRegionLabel}" Margin="0,0,30,0" Foreground="#626164" Height="30"/>
-                                                <Button Padding="0" Background="Transparent" Name="PART_ButtonRegion" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
+                                                <ItemsControl Padding="0" Background="Transparent" Name="PART_ItemsRegions" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0" Foreground="#d3d3d3" Height="30"/>
                                             </GridEx>
                                             <Grid.Style>
                                                 <Style TargetType="Grid">
