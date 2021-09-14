@@ -8,10 +8,12 @@
     <sys:Double x:Key="FontSizeLarger">20</sys:Double>
     <sys:Double x:Key="FontSizeLargest">29</sys:Double>
     <FontFamily x:Key="FontFamily">Arial</FontFamily>
+    <FontFamily x:Key="MonospaceFontFamily">Arial</FontFamily>
     <Thickness x:Key="PopupBorderThickness">0.5</Thickness>
     <Thickness x:Key="ControlBorderThickness">0</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
     <CornerRadius x:Key="ControlCornerRadius">2</CornerRadius>
+    <Thickness x:Key="SidebarItemPadding">8</Thickness>
 
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
@@ -28,6 +30,9 @@
     <Color x:Key="BackgroundToneColor">#2C3A67</Color>
     <Color x:Key="GridItemBackgroundColor">#151e3d</Color>
     <Color x:Key="PanelSeparatorColor">#662C3A67</Color>
+    <Color x:Key="SteamScrollbarGray">#FF65636F</Color>
+    <Color x:Key="SteamBackgroundDarkGrayBlue">#FF1C1E23</Color>
+    <Color x:Key="SteamViewButtonUnselected">#FFA3A3A3</Color>
 
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="Transparent" />
     <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
@@ -53,6 +58,10 @@
     <SolidColorBrush x:Key="GridItemBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" />
     <SolidColorBrush x:Key="PanelSeparatorBrush" Color="Transparent"/>
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="#3c4047" />
+    <SolidColorBrush x:Key="CheckBoxCheckMarkBkBrush" Color="{DynamicResource MainColorDark}" />
+    <SolidColorBrush x:Key="SteamScrollbarGrayBrush" Color="{DynamicResource SteamScrollbarGray}" />
+    <SolidColorBrush x:Key="SteamBackgroundDarkGrayBlueBrush" Color="{DynamicResource SteamBackgroundDarkGrayBlue}" />
+    <SolidColorBrush x:Key="SteamViewButtonUnselectedBrush" Color="{DynamicResource SteamViewButtonUnselected}" />
 
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />
     <SolidColorBrush x:Key="NegativeRatingBrush" Color="#ff6b6b" />
